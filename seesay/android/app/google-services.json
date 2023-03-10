@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "752960257037",
+    "project_id": "logintest-fcb27",
+    "storage_bucket": "logintest-fcb27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752960257037:android:649987284f20a7a38ea944",
+        "android_client_info": {
+          "package_name": "com.example.seesay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752960257037-7sk8j3c06j6aleb1tspps1v1h16rcd2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxNi3b5BT9OfVBgF2JJk6jTdpFPzbHYuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752960257037-7sk8j3c06j6aleb1tspps1v1h16rcd2f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
