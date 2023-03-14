@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "752960257037",
-    "project_id": "logintest-fcb27",
-    "storage_bucket": "logintest-fcb27.appspot.com"
+    "project_number": "287697892985",
+    "firebase_url": "https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "seesay",
+    "storage_bucket": "seesay.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:752960257037:android:649987284f20a7a38ea944",
+        "mobilesdk_app_id": "1:287697892985:android:dd8bb28d9569cee8efc6a8",
         "android_client_info": {
           "package_name": "com.example.seesay"
         }
       },
       "oauth_client": [
         {
-          "client_id": "752960257037-7sk8j3c06j6aleb1tspps1v1h16rcd2f.apps.googleusercontent.com",
+          "client_id": "287697892985-pvg7lhbn921iqerqt1cfafij4m5uj2ek.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCxNi3b5BT9OfVBgF2JJk6jTdpFPzbHYuk"
+          "current_key": "AIzaSyChgx1_1AlmpykEa4ljMSqPDKNkCFGg544"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "752960257037-7sk8j3c06j6aleb1tspps1v1h16rcd2f.apps.googleusercontent.com",
+              "client_id": "287697892985-15ouj5r2n73sdk8gs7ql1k9ptbpggbdv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

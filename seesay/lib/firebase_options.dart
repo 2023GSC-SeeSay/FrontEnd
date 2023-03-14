@@ -44,39 +44,44 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBKAEbipS1WWzaQOWpwO5PI5ZlRK1WhG-M',
-    appId: '1:752960257037:web:2cb25ad3434128f48ea944',
-    messagingSenderId: '752960257037',
-    projectId: 'logintest-fcb27',
-    authDomain: 'logintest-fcb27.firebaseapp.com',
-    storageBucket: 'logintest-fcb27.appspot.com',
+    apiKey: 'AIzaSyCSbAyckd6g2cpEjQJ5rYH-a6M1tGkHI3E',
+    appId: '1:287697892985:web:d6f4d5db639993f4efc6a8',
+    messagingSenderId: '287697892985',
+    projectId: 'seesay',
+    authDomain: 'seesay.firebaseapp.com',
+    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'seesay.appspot.com',
+    measurementId: 'G-MRNBN6NFRZ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCxNi3b5BT9OfVBgF2JJk6jTdpFPzbHYuk',
-    appId: '1:752960257037:android:649987284f20a7a38ea944',
-    messagingSenderId: '752960257037',
-    projectId: 'logintest-fcb27',
-    storageBucket: 'logintest-fcb27.appspot.com',
+    apiKey: 'AIzaSyChgx1_1AlmpykEa4ljMSqPDKNkCFGg544',
+    appId: '1:287697892985:android:dd8bb28d9569cee8efc6a8',
+    messagingSenderId: '287697892985',
+    projectId: 'seesay',
+    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'seesay.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDb-1L1HRz10Je6SA6WApYmnnpTAI0k5mc',
-    appId: '1:752960257037:ios:d74048ab524a78678ea944',
-    messagingSenderId: '752960257037',
-    projectId: 'logintest-fcb27',
-    storageBucket: 'logintest-fcb27.appspot.com',
-    iosClientId: '752960257037-i12d026jgn5s3p5dao91dfju171se0v5.apps.googleusercontent.com',
+    apiKey: 'AIzaSyA78kg9Ip2gIdl5rdccicoLNNvtztNZiys',
+    appId: '1:287697892985:ios:0d1c7cf4801349b0efc6a8',
+    messagingSenderId: '287697892985',
+    projectId: 'seesay',
+    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'seesay.appspot.com',
+    iosClientId: '287697892985-sbmaaoppq7ptne802n8m7p0cjgkq2no6.apps.googleusercontent.com',
     iosBundleId: 'com.example.seesay',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDb-1L1HRz10Je6SA6WApYmnnpTAI0k5mc',
-    appId: '1:752960257037:ios:d74048ab524a78678ea944',
-    messagingSenderId: '752960257037',
-    projectId: 'logintest-fcb27',
-    storageBucket: 'logintest-fcb27.appspot.com',
-    iosClientId: '752960257037-i12d026jgn5s3p5dao91dfju171se0v5.apps.googleusercontent.com',
+    apiKey: 'AIzaSyA78kg9Ip2gIdl5rdccicoLNNvtztNZiys',
+    appId: '1:287697892985:ios:0d1c7cf4801349b0efc6a8',
+    messagingSenderId: '287697892985',
+    projectId: 'seesay',
+    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'seesay.appspot.com',
+    iosClientId: '287697892985-sbmaaoppq7ptne802n8m7p0cjgkq2no6.apps.googleusercontent.com',
     iosBundleId: 'com.example.seesay',
   );
 }

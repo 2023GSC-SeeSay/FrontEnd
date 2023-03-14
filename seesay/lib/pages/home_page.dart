@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final String userName;
+  const HomePage({
+    super.key,
+    required this.userName,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Flexible(
-          flex: 1,
+          flex: 2,
           child: Container(
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
-                  '000님, 오늘도',
-                  style: TextStyle(
+                  textAlign: TextAlign.center,
+                  '$userName님, 오늘도',
+                  style: const TextStyle(
                     fontSize: 40,
                   ),
                 ),
-                Text(
+                const Text(
                   'SeeSay',
                   style: TextStyle(
                     fontFamily: 'Modak',
@@ -33,7 +38,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Flexible(
-          flex: 2,
+          flex: 3,
           child: Container(
             alignment: Alignment.center,
             child: const Image(

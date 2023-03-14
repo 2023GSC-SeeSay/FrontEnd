@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:seesay/services/add/file.dart';
-import 'package:seesay/services/add/image.dart';
-import 'package:seesay/services/add/text.dart';
+import 'package:seesay/services/add/file_add.dart';
+import 'package:seesay/services/add/image_add.dart';
+import 'package:seesay/services/add/text_add.dart';
 
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
@@ -34,7 +34,7 @@ class AddPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 70,
+                height: 40,
               ),
               addWidget(
                 context,
@@ -43,7 +43,7 @@ class AddPage extends StatelessWidget {
                 0,
               ),
               const SizedBox(
-                height: 50,
+                height: 30,
               ),
               addWidget(
                 context,
@@ -52,7 +52,7 @@ class AddPage extends StatelessWidget {
                 1,
               ),
               const SizedBox(
-                height: 50,
+                height: 30,
               ),
               addWidget(
                 context,
@@ -74,8 +74,8 @@ class AddPage extends StatelessWidget {
     int index,
   ) {
     List addPages = [
-      const textAdd(),
-      const imageAdd(),
+      TextAdd(),
+      const ImageAdd(),
       const fileAdd(),
     ];
     return GestureDetector(

@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seesay/services/practice/practice0.dart';
-import 'package:seesay/services/practice/practice1.dart';
-import 'package:seesay/services/practice/practice2.dart';
-import 'package:seesay/services/practice/practice3.dart';
-import 'package:seesay/services/practice/practice4.dart';
-import 'package:seesay/services/practice/practice5.dart';
-import 'package:seesay/services/practice/practice6.dart';
-import 'package:seesay/services/practice/practice7.dart';
-import 'package:seesay/services/practice/practice8.dart';
+import 'package:seesay/services/practice/basic_practice.dart';
 
 class PracticePage extends StatelessWidget {
   const PracticePage({super.key});
@@ -43,13 +35,13 @@ class PracticePage extends StatelessWidget {
               for (int i = 0; i < totalIndex; i++)
                 Column(
                   children: [
-                    realPractice(
+                    RealPractice(
                       index: i,
                     ),
-                    const lines(),
+                    const Lines(),
                   ],
                 ),
-              realPractice(index: totalIndex),
+              RealPractice(index: totalIndex),
             ],
           ),
         ),
@@ -58,8 +50,8 @@ class PracticePage extends StatelessWidget {
   }
 }
 
-class lines extends StatelessWidget {
-  const lines({
+class Lines extends StatelessWidget {
+  const Lines({
     super.key,
   });
 
@@ -85,7 +77,12 @@ class lines extends StatelessWidget {
   }
 }
 
-class realPractice extends StatelessWidget {
+class RealPractice extends StatelessWidget {
+  RealPractice({
+    super.key,
+    required this.index,
+  });
+
   late int index;
   final List<String> contents = [
     "시작",
@@ -109,21 +106,18 @@ class realPractice extends StatelessWidget {
     "음식을 주문해 봅시다",
     "생각을 전달해 봅시다",
   ];
-  final List moveToPracticePage = [
-    const Practice0(),
-    const Practice1(),
-    const Practice2(),
-    const Practice3(),
-    const Practice4(),
-    const Practice5(),
-    const Practice6(),
-    const Practice7(),
-    const Practice8(),
-  ];
-  realPractice({
-    super.key,
-    required this.index,
-  });
+  // final List moveToPracticePage = [
+  //   const Practice0(title: '시작', content: 'SeeSay에 오신 걸 환영합니다'),
+  //   const Practice1(),
+  //   const Practice2(),
+  //   const Practice3(),
+  //   const Practice4(),
+  //   const Practice5(),
+  //   const Practice6(),
+  //   const Practice7(),
+  //   const Practice8(),
+  // ];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -131,7 +125,10 @@ class realPractice extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => moveToPracticePage[index],
+            builder: (context) => BasicPractice(
+              title: contents[index],
+              content: contentsDetail[index],
+            ),
           ),
         );
         // const Practice1();

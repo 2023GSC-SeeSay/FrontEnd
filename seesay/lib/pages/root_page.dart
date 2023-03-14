@@ -7,19 +7,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:seesay/pages/setting_page.dart';
 
 class RootPage extends StatefulWidget {
-  const RootPage({super.key});
+  final String userName;
+  const RootPage({super.key, required this.userName});
 
   @override
   State<RootPage> createState() => _RootState();
 }
 
 class _RootState extends State<RootPage> {
-  List pages = [
-    const HomePage(),
-    const PracticePage(),
-    const LibraryPage(),
-    const AddPage(),
-  ];
+  int currentIndex = 0;
 
   final user = FirebaseAuth.instance.currentUser;
 
@@ -27,11 +23,15 @@ class _RootState extends State<RootPage> {
     await FirebaseAuth.instance.signOut();
   }
 
-  int currentIndex = 0;
-
   void onTap(int index) {
     setState(() {
       currentIndex = index;
+    });
+  }
+
+  void onAdd() {
+    setState(() {
+      currentIndex = 3;
     });
   }
 
@@ -44,6 +44,17 @@ class _RootState extends State<RootPage> {
 
   @override
   Widget build(BuildContext context) {
+    List pages = [
+      HomePage(
+        userName: widget.userName,
+      ),
+      const PracticePage(),
+      LibraryPage(
+        gotoAddPage: onAdd,
+      ),
+      const AddPage(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
