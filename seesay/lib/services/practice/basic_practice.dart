@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seesay/services/practice/record.dart';
 
 class BasicPractice extends StatelessWidget {
   final String content;
@@ -50,6 +51,19 @@ class BasicPractice extends StatelessWidget {
             Text(
               content,
               style: const TextStyle(fontSize: 30, color: Colors.black),
+            ),
+            GestureDetector(
+              child: const Icon(
+                Icons.record_voice_over,
+                size: 100,
+                color: Colors.black,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RecordPage()),
+                );
+              },
             ),
           ],
         ),

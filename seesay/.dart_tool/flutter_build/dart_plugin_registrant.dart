@@ -8,6 +8,8 @@
 import 'dart:io'; // flutter_ignore: dart_io_import.
 import 'package:google_sign_in_android/google_sign_in_android.dart';
 import 'package:google_sign_in_ios/google_sign_in_ios.dart';
+import 'package:record_linux/record_linux.dart';
+import 'package:record_windows/record_windows.dart';
 
 @pragma('vm:entry-point')
 class _PluginRegistrant {
@@ -37,8 +39,28 @@ class _PluginRegistrant {
       }
 
     } else if (Platform.isLinux) {
+      try {
+        RecordLinux.registerWith();
+      } catch (err) {
+        print(
+          '`record_linux` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+        rethrow;
+      }
+
     } else if (Platform.isMacOS) {
     } else if (Platform.isWindows) {
+      try {
+        RecordWindows.registerWith();
+      } catch (err) {
+        print(
+          '`record_windows` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+        rethrow;
+      }
+
     }
   }
 }
