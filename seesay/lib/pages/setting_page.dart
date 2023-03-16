@@ -1,7 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:seesay/setting/how_to_use/how_to_use.dart';
+import 'package:seesay/setting/setting2.dart';
+import 'package:seesay/setting/team_info.dart';
 
 class SettingPage extends StatelessWidget {
-  const SettingPage({super.key});
+  SettingPage({super.key});
+  List settingContents = [
+    "User's Guide",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "About us",
+  ];
+  List settingPages = [
+    const howToUse(),
+    const setting2(),
+    const setting2(),
+    const setting2(),
+    const setting2(),
+    const setting2(),
+    const teamInfo(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +35,84 @@ class SettingPage extends StatelessWidget {
           color: Color(0xFFCE4040),
         ),
       ),
-      body: Center(
-        child: Column(
-          children: const [
-            Text(
-              "SeeSay",
-              style: TextStyle(
-                fontSize: 20,
-                color: Color(0xFFCE4040),
-              ),
+      body: Column(
+        children: [
+          Center(
+            child: Column(
+              children: [
+                const Text(
+                  "SeeSay",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFFCE4040),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.settings),
+                    Text(
+                      "Settings",
+                      style: TextStyle(fontSize: 30, color: Colors.black),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        color: Colors.red,
+                        height: 70,
+                        width: 500,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.person),
+                            Text("Personal Information"),
+                          ],
+                        ),
+                      ),
+                      ListView.separated(
+                        shrinkWrap: true,
+                        separatorBuilder: (context, index) => const Divider(
+                          color: Colors.grey,
+                        ),
+                        itemCount: 7,
+                        itemBuilder: (
+                          BuildContext context,
+                          int index,
+                        ) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => settingPages[index],
+                                ),
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                              child: Container(
+                                height: 70,
+                                color: Colors.white,
+                                alignment: Alignment.centerLeft,
+                                child: Text(settingContents[index]),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Text(
-              "설정 페이지",
-              style: TextStyle(fontSize: 30, color: Colors.black),
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

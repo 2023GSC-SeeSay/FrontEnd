@@ -38,7 +38,7 @@ class _RootState extends State<RootPage> {
   void onSetting() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => (const SettingPage())),
+      MaterialPageRoute(builder: (context) => (SettingPage())),
     );
   }
 
