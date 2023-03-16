@@ -89,20 +89,20 @@ class _RootState extends State<RootPage> {
         elevation: 0,
         items: const [
           BottomNavigationBarItem(
-            label: '홈',
+            label: 'Home',
             icon: Icon(Icons.home),
             // icon: Icon(Icons.RootPage),
           ),
           BottomNavigationBarItem(
-            label: '연습',
+            label: 'Practice',
             icon: Icon(Icons.note_alt_outlined),
           ),
           BottomNavigationBarItem(
-            label: '서재',
+            label: 'Library',
             icon: Icon(Icons.book_outlined),
           ),
           BottomNavigationBarItem(
-            label: '추가',
+            label: 'Add',
             icon: Icon(Icons.add_box_outlined),
           ),
         ],

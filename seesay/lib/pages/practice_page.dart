@@ -15,7 +15,7 @@ class PracticePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "연습 Practice",
+                "Practice",
                 style: TextStyle(
                   fontSize: 20,
                   color: Color(0xFFCE4040),
@@ -23,7 +23,7 @@ class PracticePage extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               const Text(
-                "기본 발음 연습",
+                "Basic Pronounciation",
                 style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,

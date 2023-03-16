@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
+import 'package:seesay/services/practice/feedback.dart';
 
 class AudioRecorder extends StatefulWidget {
   final void Function(String path) onStop;
@@ -78,28 +79,29 @@ class _AudioRecorderState extends State<AudioRecorder> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                _buildRecordStopControl(),
-                const SizedBox(width: 20),
-                _buildPauseResumeControl(),
-                const SizedBox(width: 20),
-                _buildText(),
-              ],
-            ),
-            if (_amplitude != null) ...[
-              const SizedBox(height: 40),
-              Text('Current: ${_amplitude?.current ?? 0.0}'),
-              Text('Max: ${_amplitude?.max ?? 0.0}'),
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _buildRecordStopControl(),
+              const SizedBox(width: 40),
+              _buildPauseResumeControl(),
+              // const SizedBox(width: 20),
             ],
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          _buildText(),
+          if (_amplitude != null) ...[
+            const SizedBox(height: 40),
+            Text('Current: ${_amplitude?.current ?? 0.0}'),
+            Text('Max: ${_amplitude?.max ?? 0.0}'),
           ],
-        ),
+        ],
       ),
     );
   }
@@ -118,19 +120,19 @@ class _AudioRecorderState extends State<AudioRecorder> {
     late Color color;
 
     if (_recordState != RecordState.stop) {
-      icon = const Icon(Icons.stop, color: Colors.red, size: 30);
-      color = Colors.red.withOpacity(0.1);
+      icon = const Icon(Icons.stop, color: Color(0xFFCE4040), size: 100);
+      color = const Color(0xFFCE4040).withOpacity(0.1);
     } else {
       final theme = Theme.of(context);
-      icon = Icon(Icons.mic, color: theme.primaryColor, size: 30);
-      color = theme.primaryColor.withOpacity(0.1);
+      icon = const Icon(Icons.mic, color: Color(0xFFCE4040), size: 100);
+      color = const Color(0xFFCE4040).withOpacity(0.1);
     }
 
     return ClipOval(
       child: Material(
         color: color,
         child: InkWell(
-          child: SizedBox(width: 56, height: 56, child: icon),
+          child: SizedBox(width: 150, height: 150, child: icon),
           onTap: () {
             (_recordState != RecordState.stop) ? _stop() : _start();
           },
@@ -148,19 +150,19 @@ class _AudioRecorderState extends State<AudioRecorder> {
     late Color color;
 
     if (_recordState == RecordState.record) {
-      icon = const Icon(Icons.pause, color: Colors.red, size: 30);
-      color = Colors.red.withOpacity(0.1);
+      icon = const Icon(Icons.pause, color: Color(0xFFCE4040), size: 100);
+      color = const Color(0xFFCE4040).withOpacity(0.1);
     } else {
       final theme = Theme.of(context);
-      icon = const Icon(Icons.play_arrow, color: Colors.red, size: 30);
-      color = theme.primaryColor.withOpacity(0.1);
+      icon = const Icon(Icons.play_arrow, color: Color(0xFFCE4040), size: 100);
+      color = const Color(0xFFCE4040).withOpacity(0.1);
     }
 
     return ClipOval(
       child: Material(
         color: color,
         child: InkWell(
-          child: SizedBox(width: 56, height: 56, child: icon),
+          child: SizedBox(width: 150, height: 150, child: icon),
           onTap: () {
             (_recordState == RecordState.pause) ? _resume() : _pause();
           },
@@ -174,7 +176,11 @@ class _AudioRecorderState extends State<AudioRecorder> {
       return _buildTimer();
     }
 
-    return const Text("Waiting to record");
+    return const Text(
+      "Press the Button to Start Recording",
+      textAlign: TextAlign.center,
+      style: TextStyle(fontSize: 30),
+    );
   }
 
   Widget _buildTimer() {
@@ -183,7 +189,10 @@ class _AudioRecorderState extends State<AudioRecorder> {
 
     return Text(
       '$minutes : $seconds',
-      style: const TextStyle(color: Colors.red),
+      style: const TextStyle(
+        color: Color(0xFFCe4040),
+        fontSize: 30,
+      ),
     );
   }
 
@@ -225,20 +234,65 @@ class RecordPageState extends State<RecordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(
+          color: Color(0xFFCE4040),
+        ),
+      ),
       body: Center(
         child: showPlayer
-            ? const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Text(
-                  "showPlayer True",
-                )
-                // AudioPlayer(
-                // source: audioPath!,
-                // onDelete: () {
-                //   setState(() => showPlayer = false);
-                // },
-                // ),
-                )
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Recording Done",
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+
+                        // setState(() {});
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 100,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                          ),
+                        ),
+                        // margin: const EdgeInsets.all(2),
+                        child: const Text("다시 녹음"),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const feedbackPage()));
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 100,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                          ),
+                        ),
+                        // margin: const EdgeInsets.all(2),
+                        child: const Text("녹음 제출"),
+                      ),
+                    ),
+                  ],
+                ),
+              )
             : AudioRecorder(
                 onStop: (path) {
                   if (kDebugMode) print('Recorded file path: $path');
@@ -252,35 +306,3 @@ class RecordPageState extends State<RecordPage> {
     );
   }
 }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     backgroundColor: Colors.white,
-  //     appBar: AppBar(
-  //       backgroundColor: Colors.white,
-  //       elevation: 0,
-  //       iconTheme: const IconThemeData(
-  //         color: Color(0xFFCE4040),
-  //       ),
-  //     ),
-  //     body: Container(
-  //       alignment: Alignment.center,
-  //       child: Container(
-  //         alignment: Alignment.center,
-  //         width: 150,
-  //         height: 150,
-  //         decoration: const BoxDecoration(
-  //           shape: BoxShape.circle,
-  //           color: Color(0xFFCE4040),
-  //         ),
-  //         child: const Icon(
-  //           Icons.mic,
-  //           size: 100,
-  //           color: Colors.white,
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-// }

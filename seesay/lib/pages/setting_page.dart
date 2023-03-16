@@ -11,8 +11,8 @@ class SettingPage extends StatelessWidget {
     "2",
     "3",
     "4",
-    "5",
     "About us",
+    "Privacy Policy",
   ];
   List settingPages = [
     const howToUse(),
@@ -20,8 +20,8 @@ class SettingPage extends StatelessWidget {
     const setting2(),
     const setting2(),
     const setting2(),
-    const setting2(),
     const teamInfo(),
+    const setting2(),
   ];
 
   @override
@@ -60,18 +60,20 @@ class SettingPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        color: Colors.red,
                         height: 70,
                         width: 500,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Icon(Icons.person),
-                            Text("Personal Information"),
+                            Expanded(
+                                child: Text(
+                              "Personal Information",
+                              textAlign: TextAlign.center,
+                            )),
                           ],
                         ),
                       ),

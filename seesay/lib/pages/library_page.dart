@@ -64,59 +64,61 @@ class _LibraryPageState extends State<LibraryPage> {
             children: [
               Row(
                 children: [
-                  Column(
-                    // mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "서재 Library",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Color(0xFFCE4040),
+                  Expanded(
+                    child: Column(
+                      // mainAxisSize: MainAxisSize.min,
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Library",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFFCE4040),
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Row(
-                        // crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "내 서재",
-                            style: TextStyle(
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 180,
-                          ),
-
-                          GestureDetector(
-                            onTap: widget.gotoAddPage,
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 28,
-                              width: 72,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFCE4040),
-                                borderRadius: BorderRadius.circular(20),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          // crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "My Library",
+                              style: TextStyle(
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
                               ),
-                              child: const Text(
-                                "+ 추가",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.white,
+                            ),
+                            // const SizedBox(
+                            //   width: 180,
+                            // ),
+
+                            GestureDetector(
+                              onTap: widget.gotoAddPage,
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 28,
+                                width: 72,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFCE4040),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Text(
+                                  "+ Add",
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          // ),
-                        ],
-                      ),
-                    ],
+                            // ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
               children: [
                 Text(
                   textAlign: TextAlign.center,
-                  '$userName님, 오늘도',
+                  'Hello $userName,',
                   style: const TextStyle(
                     fontSize: 40,
                   ),

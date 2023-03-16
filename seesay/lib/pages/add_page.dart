@@ -17,7 +17,7 @@ class AddPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "추가 Add",
+                "Add",
                 style: TextStyle(
                   fontSize: 20,
                   color: Color(0xFFCE4040),
@@ -27,7 +27,7 @@ class AddPage extends StatelessWidget {
                 height: 5,
               ),
               const Text(
-                "내 서재에 추가하기",
+                "Add to my Library",
                 style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
@@ -38,7 +38,7 @@ class AddPage extends StatelessWidget {
               ),
               addWidget(
                 context,
-                "직접 입력",
+                "Typing Text",
                 Icons.insert_comment_rounded,
                 0,
               ),
@@ -47,7 +47,7 @@ class AddPage extends StatelessWidget {
               ),
               addWidget(
                 context,
-                "사진 촬영",
+                "Taking Photo",
                 Icons.camera_alt_rounded,
                 1,
               ),
@@ -56,7 +56,7 @@ class AddPage extends StatelessWidget {
               ),
               addWidget(
                 context,
-                "파일 업로드",
+                "Uploading File",
                 Icons.folder_copy,
                 2,
               ),

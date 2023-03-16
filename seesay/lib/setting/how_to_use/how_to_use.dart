@@ -203,7 +203,7 @@ class _howToUseState extends State<howToUse> {
                         child: Column(
                           children: const [
                             Text(
-                              "Helps you practice Basic Pronounciation",
+                              "You can practice Basic Pronounciation",
                               style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
