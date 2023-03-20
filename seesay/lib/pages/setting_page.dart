@@ -1,27 +1,33 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:seesay/setting/how_to_use/how_to_use.dart';
+import 'package:seesay/setting/how_to_use.dart';
 import 'package:seesay/setting/setting2.dart';
 import 'package:seesay/setting/team_info.dart';
 
-class SettingPage extends StatelessWidget {
-  SettingPage({super.key});
+class SettingPage extends StatefulWidget {
+  const SettingPage({super.key});
+
+  @override
+  State<SettingPage> createState() => _SettingPageState();
+}
+
+class _SettingPageState extends State<SettingPage> {
+  void signUserOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+
   List settingContents = [
     "User's Guide",
-    "1",
-    "2",
-    "3",
-    "4",
     "About us",
     "Privacy Policy",
+    // "Logout (표시되면 안됨)",
   ];
+
   List settingPages = [
     const howToUse(),
-    const setting2(),
-    const setting2(),
-    const setting2(),
-    const setting2(),
     const teamInfo(),
     const setting2(),
+    // const setting2(),
   ];
 
   @override
@@ -82,30 +88,75 @@ class SettingPage extends StatelessWidget {
                         separatorBuilder: (context, index) => const Divider(
                           color: Colors.grey,
                         ),
-                        itemCount: 7,
+                        itemCount: 4,
                         itemBuilder: (
                           BuildContext context,
                           int index,
                         ) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => settingPages[index],
+                          if (index == settingContents.length) {
+                            return GestureDetector(
+                              onTap: () {
+                                signUserOut();
+                                Navigator.pop(context);
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                child: Container(
+                                  height: 70,
+                                  color: Colors.white,
+                                  alignment: Alignment.centerLeft,
+                                  child: const Text("Logout"),
                                 ),
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                              child: Container(
-                                height: 70,
-                                color: Colors.white,
-                                alignment: Alignment.centerLeft,
-                                child: Text(settingContents[index]),
                               ),
-                            ),
-                          );
+                            );
+                          } else {
+                            return Column(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            settingPages[index],
+                                      ),
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                    child: Container(
+                                      height: 70,
+                                      color: Colors.white,
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(settingContents[index]),
+                                    ),
+                                  ),
+                                ),
+                                // InkWell(
+                                //   onTap: () {
+                                //     Navigator.push(
+                                //       context,
+                                //       MaterialPageRoute(
+                                //         builder: (context) => signUserOut(),
+                                //       ),
+                                //     );
+                                //   },
+                                //   child: Padding(
+                                //     padding:
+                                //         const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                //     child: Container(
+                                //       height: 70,
+                                //       color: Colors.white,
+                                //       alignment: Alignment.centerLeft,
+                                //       child: Text(settingContents[index]),
+                                //     ),
+                                //   ),
+                                // ),
+                              ],
+                            );
+                          }
                         },
                       ),
                     ],

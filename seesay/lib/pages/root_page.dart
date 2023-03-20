@@ -19,9 +19,9 @@ class _RootState extends State<RootPage> {
 
   final user = FirebaseAuth.instance.currentUser;
 
-  void signUserOut() async {
-    await FirebaseAuth.instance.signOut();
-  }
+  // void signUserOut() async {
+  //   await FirebaseAuth.instance.signOut();
+  // }
 
   void onTap(int index) {
     setState(() {
@@ -38,7 +38,7 @@ class _RootState extends State<RootPage> {
   void onSetting() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => (SettingPage())),
+      MaterialPageRoute(builder: (context) => (const SettingPage())),
     );
   }
 
@@ -60,21 +60,25 @@ class _RootState extends State<RootPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          IconButton(
-            onPressed: onSetting,
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.grey,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+            child: IconButton(
+              onPressed: onSetting,
+              icon: const Icon(
+                size: 30,
+                Icons.settings,
+                color: Colors.grey,
+              ),
             ),
           ),
-          IconButton(
-            padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-            onPressed: signUserOut,
-            icon: const Icon(
-              Icons.logout,
-              color: Colors.grey,
-            ),
-          ),
+          // IconButton(
+          //   padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+          //   onPressed: signUserOut,
+          //   icon: const Icon(
+          //     Icons.logout,
+          //     color: Colors.grey,
+          //   ),
+          // ),
         ],
       ),
       body: pages[currentIndex],

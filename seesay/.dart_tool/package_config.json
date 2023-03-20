@@ -86,6 +86,24 @@
       "languageVersion": "2.16"
     },
     {
+      "name": "firebase_storage",
+      "rootUri": "file:///Users/cho/.pub-cache/hosted/pub.dev/firebase_storage-11.0.14",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_storage_platform_interface",
+      "rootUri": "file:///Users/cho/.pub-cache/hosted/pub.dev/firebase_storage_platform_interface-4.1.30",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_storage_web",
+      "rootUri": "file:///Users/cho/.pub-cache/hosted/pub.dev/firebase_storage_web-3.3.23",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///opt/homebrew/Caskroom/flutter/3.7.3/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -308,7 +326,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-15T20:40:30.382844Z",
+  "generated": "2023-03-20T06:36:44.454780Z",
   "generator": "pub",
   "generatorVersion": "2.19.2"
 }

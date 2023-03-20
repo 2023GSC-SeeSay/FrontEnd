@@ -40,11 +40,11 @@ class _howToUseState extends State<howToUse> {
                   style: TextStyle(fontSize: 30, color: Colors.black),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Container(
                   width: 394,
-                  height: 30,
+                  height: 35,
                   decoration: BoxDecoration(
                       border: Border.all(color: const Color(0xFFCE4040)),
                       borderRadius: BorderRadius.circular(5)),
@@ -58,7 +58,7 @@ class _howToUseState extends State<howToUse> {
                         },
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(130, 30)),
+                              MaterialStateProperty.all(const Size(130, 35)),
                           elevation: const MaterialStatePropertyAll(0),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -104,7 +104,7 @@ class _howToUseState extends State<howToUse> {
                         },
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(130, 30)),
+                              MaterialStateProperty.all(const Size(130, 35)),
                           elevation: const MaterialStatePropertyAll(0),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -150,7 +150,7 @@ class _howToUseState extends State<howToUse> {
                         },
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(130, 30)),
+                              MaterialStateProperty.all(const Size(130, 35)),
                           alignment: Alignment.center,
                           elevation: const MaterialStatePropertyAll(0),
                           shape:

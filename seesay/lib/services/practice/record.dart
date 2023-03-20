@@ -1,9 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
-import 'package:seesay/services/practice/feedback.dart';
+import 'package:seesay/services/practice/upload_page.dart';
 
 class AudioRecorder extends StatefulWidget {
   final void Function(String path) onStop;
@@ -86,10 +87,11 @@ class _AudioRecorderState extends State<AudioRecorder> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const SizedBox(width: 40),
               _buildRecordStopControl(),
               const SizedBox(width: 40),
               _buildPauseResumeControl(),
-              // const SizedBox(width: 20),
+              const SizedBox(width: 20),
             ],
           ),
           const SizedBox(
@@ -223,7 +225,8 @@ class RecordPage extends StatefulWidget {
 
 class RecordPageState extends State<RecordPage> {
   bool showPlayer = false;
-  String? audioPath;
+  late String audioPath;
+  late File audioFile;
 
   @override
   void initState() {
@@ -247,47 +250,72 @@ class RecordPageState extends State<RecordPage> {
             ? Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       "Recording Done",
+                      style: TextStyle(fontSize: 50),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-
-                        // setState(() {});
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 100,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1,
+                    Padding(
+                      padding: const EdgeInsets.all(60.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(50)),
+                              border: Border.all(
+                                width: 1,
+                              ),
+                            ),
+                            margin: const EdgeInsets.all(2),
+                            child:
+                                // const Text("다시 녹음"),
+                                IconButton(
+                              iconSize: 80,
+                              onPressed: () => Navigator.pop(context),
+                              icon: const Icon(Icons.restart_alt_rounded),
+                            ),
                           ),
-                        ),
-                        // margin: const EdgeInsets.all(2),
-                        child: const Text("다시 녹음"),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const feedbackPage()));
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 100,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1,
+                          // GestureDetector(
+                          // onTap: () {
+                          //   Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: (context) => const feedbackPage()));
+                          // },
+                          Container(
+                            alignment: Alignment.center,
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(50)),
+                              border: Border.all(
+                                width: 1,
+                              ),
+                            ),
+                            // margin: const EdgeInsets.all(2),
+                            child:
+                                // const Text("녹음 제출"),
+                                IconButton(
+                              iconSize: 80,
+                              alignment: Alignment.center,
+                              onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => uploadPage(
+                                            file: audioFile,
+                                          ))),
+                              icon: const Icon(Icons.check),
+                            ),
                           ),
-                        ),
-                        // margin: const EdgeInsets.all(2),
-                        child: const Text("녹음 제출"),
+                          // ),
+                        ],
                       ),
                     ),
                   ],
@@ -295,9 +323,11 @@ class RecordPageState extends State<RecordPage> {
               )
             : AudioRecorder(
                 onStop: (path) {
+                  path = path.substring(7);
                   if (kDebugMode) print('Recorded file path: $path');
                   setState(() {
                     audioPath = path;
+                    audioFile = File(audioPath);
                     showPlayer = true;
                   });
                 },
