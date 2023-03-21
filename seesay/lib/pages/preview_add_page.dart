@@ -1,13 +1,97 @@
+import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:seesay/components/add_textfield.dart';
 import 'package:seesay/components/submit_button.dart';
 import 'package:seesay/services/practice/library_practice.dart';
+import 'package:path_provider/path_provider.dart';
 
-class PreviewAddPage extends StatelessWidget {
-  PreviewAddPage({super.key});
+class CounterStorage {
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+
+    return directory.path;
+  }
+
+  Future<File> get _localCounterFile async {
+    final path = await _localPath;
+    print('카운터 파일 경로: $path');
+    return File('$path/counter.txt');
+  }
+
+  Future<int> readCounter() async {
+    try {
+      final file = await _localCounterFile;
+
+      // 파일 읽기
+      String contents = await file.readAsString();
+
+      return int.parse(contents);
+    } catch (e) {
+      // 에러가 발생할 경우 0을 반환
+      return 0;
+    }
+  }
+
+  Future<File> writeCounter(int counter) async {
+    final file = await _localCounterFile;
+
+    // 파일 쓰기
+    return file.writeAsString('$counter');
+  }
+}
+
+class PreviewAddPage extends StatefulWidget {
+  final CounterStorage storage = CounterStorage();
+
+  String content;
+
+  PreviewAddPage({
+    super.key,
+    required this.content,
+  });
+
+  @override
+  State<PreviewAddPage> createState() => _PreviewAddPageState();
+}
+
+class _PreviewAddPageState extends State<PreviewAddPage> {
+  int _counter = 0;
+  Future<File> get _localContentFile async {
+    final path = await widget.storage._localPath;
+    print('컨텐츠 파일 경로: $path');
+    return File('$path/library$_counter.txt');
+  }
+
+  Future<File> writeContent(String content) async {
+    final file = await _localContentFile;
+
+    // 파일 쓰기
+    return file.writeAsString(content);
+  }
 
   final titleController = TextEditingController();
+
   final keywordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    widget.storage.readCounter().then((int value) {
+      setState(() {
+        _counter = value;
+      });
+    });
+  }
+
+  Future<File> _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+    writeContent(widget.content);
+    return widget.storage.writeCounter(_counter);
+    // 파일에 String 타입으로 변수 값 쓰기
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +182,7 @@ class PreviewAddPage extends StatelessWidget {
                         ),
                       );
                     }
+                    _incrementCounter();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

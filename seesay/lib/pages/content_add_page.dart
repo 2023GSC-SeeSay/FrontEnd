@@ -76,7 +76,9 @@ class ContentAddPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => PreviewAddPage(),
+                          builder: (context) => PreviewAddPage(
+                            content: textController.text,
+                          ),
                         ),
                       );
                     }),
