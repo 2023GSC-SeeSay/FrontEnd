@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/FirebaseStorage.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		2Fp+l8T7hVK5hRAnbmDKaKsLSlg=
+		qO7KapvlVvQmyRmGbPeN9oXHwFI=
 		</data>
 		<key>Modules/FirebaseStorage.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		aTyYMc/b83+t8ZffjjpW/yp3NtM=
+		+BZoXDbWwYEBDV38BzmtknLN+0A=
 		</data>
 		<key>Modules/FirebaseStorage.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/FirebaseStorage.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		xNXaFu1MSCzUgNVvD8RiF1BvAIk=
+		WUT+2D8hH9mqNriOM36id0SqRHE=
 		</data>
 		<key>Modules/FirebaseStorage.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/FirebaseStorage.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		N4VK8187O+0d7Th7RFLBARtxMEY=
+		Oj8XqEkY/cU4NaOwyGqZhPy3Bv0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -84,14 +84,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Mp5AHzTPNluMgXfdoxScKbh+4r0OFXJxJYUPYVFY+YM=
+			pQscMcdYnPyWp/xnuYRZYpofpEfdXR3WI22R7+4rebw=
 			</data>
 		</dict>
 		<key>Modules/FirebaseStorage.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VDDv7XYUkqs51ogbJrfJJzuy+3vAr5rhK5WbRulHLPA=
+			yOPCN8Zxuru0CTF3+wYQmBe00m/YyVDlBUOMdNkGiq0=
 			</data>
 		</dict>
 		<key>Modules/FirebaseStorage.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -112,7 +112,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N4n4sJ3HD9gRkIc8cxvWYwm2lqF6kgyCogcguGUaD+4=
+			9K7CpgwiV5FTOBdHxaXydYFAryfS5RX/EPOMLpi67KY=
 			</data>
 		</dict>
 		<key>Modules/FirebaseStorage.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -133,7 +133,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			W681zT9BsRf4zPjxaz+fkjCjHlx1cKxlxq93N6UuRvk=
+			qkRIuE6b1vbVg5Re6Y4sQaSAAAtzi/1Atj3T8Dq7aP4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
