@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:seesay/components/add_textfield.dart';
 import 'package:seesay/components/submit_button.dart';
-import 'package:seesay/services/practice/library_practice.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:seesay/services/practice/upload_page.dart';
 
 class CounterStorage {
   Future<String> get _localPath async {
@@ -88,8 +88,9 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
     setState(() {
       _counter++;
     });
-    writeContent(widget.content);
-    return widget.storage.writeCounter(_counter);
+    widget.storage.writeCounter(_counter);
+    return writeContent(widget.content);
+
     // 파일에 String 타입으로 변수 값 쓰기
   }
 
@@ -182,16 +183,22 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
                         ),
                       );
                     }
-                    _incrementCounter();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LibraryPractice(
-                          title: titleController.text,
-                          content: keywordController.text,
+                    Future<File> futurefile = _incrementCounter();
+                    File file;
+                    futurefile.then((value) {
+                      file = value;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UploadPage(
+                            file: file,
+                            isAudio: false,
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    }).catchError((error) {
+                      print('error: $error');
+                    });
                   },
                 ),
               ],

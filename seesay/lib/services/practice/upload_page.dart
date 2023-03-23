@@ -3,19 +3,20 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-class uploadPage extends StatefulWidget {
+class UploadPage extends StatefulWidget {
   final File file; // 어플에서 업로드 하는 파일의 경로
-
-  const uploadPage({
+  bool isAudio;
+  UploadPage({
+    this.isAudio = true,
     required this.file,
     Key? key,
   }) : super(key: key);
 
   @override
-  _uploadPageState createState() => _uploadPageState();
+  _UploadPageState createState() => _UploadPageState();
 }
 
-class _uploadPageState extends State<uploadPage> {
+class _UploadPageState extends State<UploadPage> {
   // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   // late File _file;
   late final String _fileName; //firebase에 저장될 파일명 = widget._file에서 파일명을 추출
@@ -73,12 +74,15 @@ class _uploadPageState extends State<uploadPage> {
       _uploading = true;
     });
     try {
-      final metadata = SettableMetadata(contentType: "audio/m4a");
+      final metadata = widget.isAudio
+          ? SettableMetadata(contentType: "audio/m4a")
+          : SettableMetadata(contentType: "text/txt");
       // final metadata = SettableMetadata(contentType: "text/txt");
 
       final storageRef = FirebaseStorage.instance.ref();
-      final uploadTask =
-          storageRef.child("audio/$_fileName").putFile(widget.file, metadata);
+      final uploadTask = widget.isAudio
+          ? storageRef.child("audio/$_fileName").putFile(widget.file, metadata)
+          : storageRef.child("text/$_fileName").putFile(widget.file, metadata);
       // final uploadTask =
       //     storageRef.child("text/$_fileName").putFile(widget.file, metadata);
       uploadTask.snapshotEvents.listen((TaskSnapshot taskSnapshot) {

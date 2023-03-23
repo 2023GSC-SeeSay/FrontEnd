@@ -321,7 +321,7 @@ class RecordPageState extends State<RecordPage> {
                               onPressed: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => uploadPage(
+                                      builder: (context) => UploadPage(
                                             file: audioFile,
                                           ))),
                               icon: const Icon(Icons.check),
