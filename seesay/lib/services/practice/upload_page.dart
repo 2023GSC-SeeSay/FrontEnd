@@ -27,29 +27,36 @@ class _uploadPageState extends State<uploadPage> {
     // _fileName = Platform.isIOS || Platform.isAndroid
     //     ? widget.file.path.split('/').last
     //     : widget.file.path.split('\\').last;
+    _uploadFile();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       // key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('음성 파일 업로드중'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(
+          color: Color(0xFFCE4040),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (_uploading) const Text("Uploading"),
             if (_uploading) const CircularProgressIndicator(),
             const SizedBox(height: 20),
-            Text('File Name: $_fileName'),
+            // Text('File Name: $_fileName'),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _uploading ? null : _uploadFile,
-              child: const Text('Upload File'),
-            ),
+            // ElevatedButton(
+            //   onPressed: _uploading ? null : _uploadFile,
+            //   child: const Text('Upload File'),
+            // ),
             const SizedBox(height: 20),
-            _url != null ? Text('File URL: $_url') : Container(),
+            // _url != null ? Text('File URL: $_url') : Container(),
           ],
         ),
       ),
@@ -73,7 +80,6 @@ class _uploadPageState extends State<uploadPage> {
 
       // final snapshot = await uploadTask.whenComplete(() {});
       final snapshot = await uploadTask;
-      print("Upload 1");
       final url = await snapshot.ref.getDownloadURL();
       print("Upload done!");
       setState(() {
