@@ -36,14 +36,14 @@ class _BasicPracticeState extends State<BasicPractice> {
             child: Column(
               children: [
                 const Text(
-                  "Tutorial",
+                  "Practice",
                   style: TextStyle(
                     fontSize: 20,
                     color: Color(0xFFCE4040),
                   ),
                 ),
                 const Text(
-                  "User's Guide",
+                  "~~를 발음해 봅시다",
                   style: TextStyle(fontSize: 30, color: Colors.black),
                 ),
                 const SizedBox(
@@ -251,47 +251,50 @@ class _BasicPracticeState extends State<BasicPractice> {
                     ),
                   ),
                 ),
-                Center(
-                  child: Scaffold(
-                    body: Padding(
-                      padding: const EdgeInsets.all(25),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            const Text(
-                              "발음 연습",
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              "발음 연습",
-                              style: TextStyle(
-                                fontSize: 25,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            GestureDetector(
-                              child: const Icon(
-                                Icons.record_voice_over,
-                                size: 100,
-                                color: Colors.black,
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const RecordPage()),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                const Center(
+                  child: RecordPage(),
+                  //   Scaffold(
+                  //     body: Padding(
+                  //       padding: const EdgeInsets.all(25),
+                  //       child: Center(
+                  //         child: Column(
+                  //           children: const [
+                  //             Text(
+                  //               "발음 연습",
+                  //               style: TextStyle(
+                  //                 fontSize: 30,
+                  //                 fontWeight: FontWeight.bold,
+                  //               ),
+                  //             ),
+                  //             SizedBox(height: 10),
+                  //             Text(
+                  //               "발음 연습",
+                  //               style: TextStyle(
+                  //                 fontSize: 25,
+                  //               ),
+                  //             ),
+                  //             SizedBox(height: 10),
+                  //             // AudioRecorder(onStop: onStop),
+                  //             RecordPage(),
+                  //             // GestureDetector(
+                  //             //   child: const Icon(
+                  //             //     Icons.record_voice_over,
+                  //             //     size: 100,
+                  //             //     color: Colors.black,
+                  //             //   ),
+                  //             //   onTap: () {
+                  //             //     Navigator.push(
+                  //             //       context,
+                  //             //       MaterialPageRoute(
+                  //             //           builder: (context) => const RecordPage()),
+                  //             //     );
+                  //             //   },
+                  //             // ),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
                 ),
               ],
               onPageChanged: (int pageIndex) {

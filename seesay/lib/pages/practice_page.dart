@@ -85,7 +85,7 @@ class RealPractice extends StatelessWidget {
 
   late int index;
   final List<String> contents = [
-    "시작",
+    "Begin",
     "기본 글자 1",
     "기본 글자 2",
     "기본 단어 1",
@@ -96,7 +96,7 @@ class RealPractice extends StatelessWidget {
     "기본 문장 3",
   ];
   final List<String> contentsDetail = [
-    "SeeSay에 오신 걸 환영합니다",
+    "Welcome to SeeSay",
     "한글의 자음, 모음에 대해 알아봅시다",
     "한글의 기본글자를 발음해 봅시다",
     "동물을 발음해 봅시다",

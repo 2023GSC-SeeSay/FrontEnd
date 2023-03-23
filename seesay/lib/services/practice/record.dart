@@ -36,6 +36,13 @@ class _AudioRecorderState extends State<AudioRecorder> {
     super.initState();
   }
 
+  void reset() {
+    setState(() {
+      _recordDuration = 0;
+      _recordState = RecordState.stop;
+    });
+  }
+
   Future<void> _start() async {
     try {
       if (await _audioRecorder.hasPermission()) {
@@ -98,11 +105,11 @@ class _AudioRecorderState extends State<AudioRecorder> {
             height: 50,
           ),
           _buildText(),
-          if (_amplitude != null) ...[
-            const SizedBox(height: 40),
-            Text('Current: ${_amplitude?.current ?? 0.0}'),
-            Text('Max: ${_amplitude?.max ?? 0.0}'),
-          ],
+          // if (_amplitude != null) ...[
+          // const SizedBox(height: 40),
+          // Text('Current: ${_amplitude?.current ?? 0.0}'),
+          // Text('Max: ${_amplitude?.max ?? 0.0}'),
+          // ],
         ],
       ),
     );
@@ -234,17 +241,23 @@ class RecordPageState extends State<RecordPage> {
     super.initState();
   }
 
+  void restart() {
+    setState(() {
+      showPlayer = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Color(0xFFCE4040),
-        ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   elevation: 0,
+      //   iconTheme: const IconThemeData(
+      //     color: Color(0xFFCE4040),
+      //   ),
+      // ),
       body: Center(
         child: showPlayer
             ? Padding(
@@ -277,17 +290,10 @@ class RecordPageState extends State<RecordPage> {
                                 // const Text("다시 녹음"),
                                 IconButton(
                               iconSize: 80,
-                              onPressed: () => Navigator.pop(context),
+                              onPressed: () => restart(),
                               icon: const Icon(Icons.restart_alt_rounded),
                             ),
                           ),
-                          // GestureDetector(
-                          // onTap: () {
-                          //   Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => const feedbackPage()));
-                          // },
                           Container(
                             alignment: Alignment.center,
                             width: 100,
