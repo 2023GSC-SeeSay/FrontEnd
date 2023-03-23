@@ -47,15 +47,20 @@ class _uploadPageState extends State<uploadPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (_uploading) const Text("Uploading"),
-            if (_uploading) const CircularProgressIndicator(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
+            if (_uploading)
+              const CircularProgressIndicator(
+                color: Color(0xFFCE4040),
+              ),
+            const Text("Score of your pronounciation: "),
+            // const SizedBox(height: 20),
             // Text('File Name: $_fileName'),
-            const SizedBox(height: 20),
+            // const SizedBox(height: 20),
             // ElevatedButton(
             //   onPressed: _uploading ? null : _uploadFile,
             //   child: const Text('Upload File'),
             // ),
-            const SizedBox(height: 20),
+            // const SizedBox(height: 20),
             // _url != null ? Text('File URL: $_url') : Container(),
           ],
         ),
@@ -69,9 +74,13 @@ class _uploadPageState extends State<uploadPage> {
     });
     try {
       final metadata = SettableMetadata(contentType: "audio/m4a");
+      // final metadata = SettableMetadata(contentType: "text/txt");
+
       final storageRef = FirebaseStorage.instance.ref();
       final uploadTask =
           storageRef.child("audio/$_fileName").putFile(widget.file, metadata);
+      // final uploadTask =
+      //     storageRef.child("text/$_fileName").putFile(widget.file, metadata);
       uploadTask.snapshotEvents.listen((TaskSnapshot taskSnapshot) {
         final progress =
             100.0 * (taskSnapshot.bytesTransferred / taskSnapshot.totalBytes);
