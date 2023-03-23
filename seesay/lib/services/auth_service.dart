@@ -6,7 +6,6 @@ class AuthService {
   signInWithGoogle() async {
     //begin interactive sign in process
     final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
-
     if (gUser == null) return;
 
     //obtain auth details from request

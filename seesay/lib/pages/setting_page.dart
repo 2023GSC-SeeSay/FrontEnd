@@ -5,7 +5,12 @@ import 'package:seesay/setting/setting2.dart';
 import 'package:seesay/setting/team_info.dart';
 
 class SettingPage extends StatefulWidget {
-  const SettingPage({super.key});
+  final String photoURL;
+
+  const SettingPage({
+    super.key,
+    required this.photoURL,
+  });
 
   @override
   State<SettingPage> createState() => _SettingPageState();
@@ -73,13 +78,26 @@ class _SettingPageState extends State<SettingPage> {
                         width: 500,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(Icons.person),
-                            Expanded(
-                                child: Text(
+                          // crossAxisAlignment: ,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.network(
+                                widget.photoURL,
+                                height: 50,
+                                width: 50,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            // const Icon(Icons.person),
+                            // const Expanded(
+                            const Text(
                               "Personal Information",
                               textAlign: TextAlign.center,
-                            )),
+                            ),
+                            // ),
                           ],
                         ),
                       ),

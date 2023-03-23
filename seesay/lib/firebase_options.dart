@@ -49,7 +49,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '287697892985',
     projectId: 'seesay',
     authDomain: 'seesay.firebaseapp.com',
-    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'seesay.appspot.com',
     measurementId: 'G-MRNBN6NFRZ',
   );
@@ -59,7 +60,8 @@ class DefaultFirebaseOptions {
     appId: '1:287697892985:android:dd8bb28d9569cee8efc6a8',
     messagingSenderId: '287697892985',
     projectId: 'seesay',
-    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'seesay.appspot.com',
   );
 
@@ -68,9 +70,11 @@ class DefaultFirebaseOptions {
     appId: '1:287697892985:ios:0d1c7cf4801349b0efc6a8',
     messagingSenderId: '287697892985',
     projectId: 'seesay',
-    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'seesay.appspot.com',
-    iosClientId: '287697892985-sbmaaoppq7ptne802n8m7p0cjgkq2no6.apps.googleusercontent.com',
+    iosClientId:
+        '287697892985-sbmaaoppq7ptne802n8m7p0cjgkq2no6.apps.googleusercontent.com',
     iosBundleId: 'com.example.seesay',
   );
 
@@ -79,9 +83,11 @@ class DefaultFirebaseOptions {
     appId: '1:287697892985:ios:0d1c7cf4801349b0efc6a8',
     messagingSenderId: '287697892985',
     projectId: 'seesay',
-    databaseURL: 'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://seesay-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'seesay.appspot.com',
-    iosClientId: '287697892985-sbmaaoppq7ptne802n8m7p0cjgkq2no6.apps.googleusercontent.com',
+    iosClientId:
+        '287697892985-sbmaaoppq7ptne802n8m7p0cjgkq2no6.apps.googleusercontent.com',
     iosBundleId: 'com.example.seesay',
   );
 }

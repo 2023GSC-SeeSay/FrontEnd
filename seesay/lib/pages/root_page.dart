@@ -8,7 +8,13 @@ import 'package:seesay/pages/setting_page.dart';
 
 class RootPage extends StatefulWidget {
   final String userName;
-  const RootPage({super.key, required this.userName});
+  final String photoURL;
+
+  const RootPage({
+    super.key,
+    required this.userName,
+    required this.photoURL,
+  });
 
   @override
   State<RootPage> createState() => _RootState();
@@ -38,7 +44,11 @@ class _RootState extends State<RootPage> {
   void onSetting() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => (const SettingPage())),
+      MaterialPageRoute(
+        builder: (context) => (SettingPage(
+          photoURL: widget.photoURL,
+        )),
+      ),
     );
   }
 
