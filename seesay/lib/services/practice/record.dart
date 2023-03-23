@@ -104,7 +104,7 @@ class _AudioRecorderState extends State<AudioRecorder> {
           const SizedBox(
             height: 50,
           ),
-          _buildText(),
+          // _buildText(),
           // if (_amplitude != null) ...[
           // const SizedBox(height: 40),
           // Text('Current: ${_amplitude?.current ?? 0.0}'),
@@ -141,6 +141,8 @@ class _AudioRecorderState extends State<AudioRecorder> {
       child: Material(
         color: color,
         child: InkWell(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           child: SizedBox(width: 150, height: 150, child: icon),
           onTap: () {
             (_recordState != RecordState.stop) ? _stop() : _start();
@@ -171,6 +173,8 @@ class _AudioRecorderState extends State<AudioRecorder> {
       child: Material(
         color: color,
         child: InkWell(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           child: SizedBox(width: 150, height: 150, child: icon),
           onTap: () {
             (_recordState == RecordState.pause) ? _resume() : _pause();
@@ -266,11 +270,11 @@ class RecordPageState extends State<RecordPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Recording Done",
-                      style: TextStyle(fontSize: 50),
+                      "Recording Done!",
+                      style: TextStyle(fontSize: 30, color: Color(0xFFCE4040)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(60.0),
+                      padding: const EdgeInsets.fromLTRB(60, 10, 60, 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -279,11 +283,12 @@ class RecordPageState extends State<RecordPage> {
                             width: 100,
                             height: 100,
                             decoration: BoxDecoration(
+                              color: const Color(0xFFCE4040).withOpacity(0.1),
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(50)),
-                              border: Border.all(
-                                width: 1,
-                              ),
+                              // border: Border.all(
+                              //   width: 1,
+                              // ),
                             ),
                             margin: const EdgeInsets.all(2),
                             child:
@@ -292,6 +297,7 @@ class RecordPageState extends State<RecordPage> {
                               iconSize: 80,
                               onPressed: () => restart(),
                               icon: const Icon(Icons.restart_alt_rounded),
+                              color: const Color(0xFFCE4040),
                             ),
                           ),
                           Container(
@@ -299,11 +305,12 @@ class RecordPageState extends State<RecordPage> {
                             width: 100,
                             height: 100,
                             decoration: BoxDecoration(
+                              color: const Color(0xFFCE4040).withOpacity(0.1),
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(50)),
-                              border: Border.all(
-                                width: 1,
-                              ),
+                              // border: Border.all(
+                              //   width: 1,
+                              // ),
                             ),
                             // margin: const EdgeInsets.all(2),
                             child:
@@ -318,6 +325,7 @@ class RecordPageState extends State<RecordPage> {
                                             file: audioFile,
                                           ))),
                               icon: const Icon(Icons.check),
+                              color: const Color(0xFFCE4040),
                             ),
                           ),
                           // ),
