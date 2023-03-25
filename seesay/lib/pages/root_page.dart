@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:seesay/pages/add_page.dart';
 import 'package:seesay/pages/home_page.dart';
 import 'package:seesay/pages/library_page.dart';
 import 'package:seesay/pages/practice_page.dart';
@@ -37,7 +36,7 @@ class _RootState extends State<RootPage> {
 
   void onAdd() {
     setState(() {
-      currentIndex = 3;
+      currentIndex = 2;
     });
   }
 
@@ -62,7 +61,7 @@ class _RootState extends State<RootPage> {
       LibraryPage(
         gotoAddPage: onAdd,
       ),
-      const AddPage(),
+      // const AddPage(),
     ];
 
     return Scaffold(
@@ -109,16 +108,16 @@ class _RootState extends State<RootPage> {
           ),
           BottomNavigationBarItem(
             label: 'Practice',
-            icon: Icon(Icons.note_alt_outlined),
+            icon: Icon(Icons.note_alt_rounded),
           ),
           BottomNavigationBarItem(
             label: 'Library',
-            icon: Icon(Icons.book_outlined),
+            icon: Icon(Icons.book),
           ),
-          BottomNavigationBarItem(
-            label: 'Add',
-            icon: Icon(Icons.add_box_outlined),
-          ),
+          // BottomNavigationBarItem(
+          //   label: 'Add',
+          //   icon: Icon(Icons.add_box_outlined),
+          // ),
         ],
       ),
     );

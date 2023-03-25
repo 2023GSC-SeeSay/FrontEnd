@@ -42,24 +42,24 @@ class AddPage extends StatelessWidget {
                 Icons.insert_comment_rounded,
                 0,
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              addWidget(
-                context,
-                "Taking Photo",
-                Icons.camera_alt_rounded,
-                1,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              addWidget(
-                context,
-                "Uploading File",
-                Icons.folder_copy,
-                2,
-              ),
+              // const SizedBox(
+              //   height: 30,
+              // ),
+              // addWidget(
+              //   context,
+              //   "Taking Photo",
+              //   Icons.camera_alt_rounded,
+              //   1,
+              // ),
+              // const SizedBox(
+              //   height: 30,
+              // ),
+              // addWidget(
+              //   context,
+              //   "Uploading File",
+              //   Icons.folder_copy,
+              //   2,
+              // ),
             ],
           ),
         ),

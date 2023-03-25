@@ -9,6 +9,36 @@ class PracticePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(19),
       child: Scaffold(
+        // appBar: AppBar(
+        //   toolbarHeight: 100,
+        //   // titleSpacing: 100,
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        //   // surfaceTintColor: Colors.white,
+        //   title: Column(
+        //     children: const [
+        //       Text(
+        //         "Practice",
+        //         style: TextStyle(
+        //             fontSize: 20,
+        //             color: Color(0xFFCE4040),
+        //             fontWeight: FontWeight.normal),
+        //       ),
+        //       SizedBox(height: 5),
+        //       Text(
+        //         "Basic Pronounciation",
+        //         style: TextStyle(
+        //           color: Colors.black,
+        //           fontSize: 33,
+        //           fontWeight: FontWeight.bold,
+        //         ),
+        //       ),
+        //       SizedBox(
+        //         height: 20,
+        //       ),
+        //     ],
+        //   ),
+        // ),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -86,10 +116,10 @@ class RealPractice extends StatelessWidget {
   late int index;
   final List<String> contents = [
     "Begin",
-    "기본 글자 1",
-    "기본 글자 2",
-    "기본 단어 1",
-    "기본 단어 2",
+    "Basic 1",
+    "Basic 2",
+    "Basic Words 1",
+    "Basic Words 2",
     "기본 단어 3",
     "기본 문장 1",
     "기본 문장 2",
@@ -97,7 +127,9 @@ class RealPractice extends StatelessWidget {
   ];
   final List<String> contentsDetail = [
     "Welcome to SeeSay",
-    "한글의 자음, 모음에 대해 알아봅시다",
+    "Let's pronounce the consonants",
+    "Let's pronounce the vowels",
+    "한글의 자음에 대해 알아봅시다",
     "한글의 기본글자를 발음해 봅시다",
     "동물을 발음해 봅시다",
     "음식을 발음해 봅시다",

@@ -35,16 +35,17 @@ class _BasicPracticeState extends State<BasicPractice> {
           Center(
             child: Column(
               children: [
-                const Text(
-                  "Practice",
-                  style: TextStyle(
+                Text(
+                  widget.title,
+                  style: const TextStyle(
                     fontSize: 20,
                     color: Color(0xFFCE4040),
                   ),
                 ),
-                const Text(
-                  "~~를 발음해 봅시다",
-                  style: TextStyle(fontSize: 30, color: Colors.black),
+                Text(
+                  // "~~를 발음해 봅시다",
+                  widget.content,
+                  style: const TextStyle(fontSize: 30, color: Colors.black),
                 ),
                 const SizedBox(
                   height: 20,

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:seesay/pages/content_add_page.dart';
 import 'package:seesay/services/practice/library_practice.dart';
 
 class LibraryPage extends StatefulWidget {
@@ -97,7 +98,16 @@ class _LibraryPageState extends State<LibraryPage> {
                             // ),
 
                             GestureDetector(
-                              onTap: widget.gotoAddPage,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ContentAddPage(),
+                                  ),
+                                );
+                                // const Practice1();
+                                // print("기본글자1 clicked");
+                              },
                               child: Container(
                                 alignment: Alignment.center,
                                 height: 28,

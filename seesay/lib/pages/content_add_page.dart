@@ -40,7 +40,7 @@ class ContentAddPage extends StatelessWidget {
                   style: TextStyle(fontSize: 25, color: Colors.black),
                 ),
                 const Text(
-                  "(100자 이하)",
+                  "(50자 이하)",
                   style: TextStyle(fontSize: 25, color: Colors.black),
                 ),
                 const SizedBox(

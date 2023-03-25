@@ -46,7 +46,11 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
+<<<<<<< Updated upstream
 		MTJ0rRjB90lnxUoBw+tfOhaf7rA=
+=======
+		zxoGGs5YXvRVZqEliBh0Vip5qXE=
+>>>>>>> Stashed changes
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +58,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
+<<<<<<< Updated upstream
 		jFQCyu+x5MRw4sjStxFBd0nl65g=
+=======
+		NarwOf6XpqftBnB8gB94Sh0vtnA=
+>>>>>>> Stashed changes
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
@@ -94,7 +102,11 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
+<<<<<<< Updated upstream
 		uNiuoICN7NlJ9H0av8y1b41JvIE=
+=======
+		YLaTf1k3whk7/OnGwi5FoxpUyXg=
+>>>>>>> Stashed changes
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -146,7 +158,11 @@
 		</data>
 		<key>Frameworks/FirebaseAuth.framework/FirebaseAuth</key>
 		<data>
+<<<<<<< Updated upstream
 		gUCJvyVz7Bvedp9MUsg3Mi9tnoQ=
+=======
+		STCLz36qZ/3rFH625vOMeCcIzaM=
+>>>>>>> Stashed changes
 		</data>
 		<key>Frameworks/FirebaseAuth.framework/Info.plist</key>
 		<data>
@@ -170,7 +186,11 @@
 		</data>
 		<key>Frameworks/FirebaseCore.framework/FirebaseCore</key>
 		<data>
+<<<<<<< Updated upstream
 		G1JrjX46NMkT+bJwdS/FzuXV4hw=
+=======
+		YwDVEzV31YHFWMbsLsu31/ROkkM=
+>>>>>>> Stashed changes
 		</data>
 		<key>Frameworks/FirebaseCore.framework/Info.plist</key>
 		<data>
@@ -314,7 +334,11 @@
 		</data>
 		<key>Frameworks/GTMAppAuth.framework/GTMAppAuth</key>
 		<data>
+<<<<<<< Updated upstream
 		KJLIzMsbqZ45T2UlJZ2NCX9VW4I=
+=======
+		c+8dfC0xh8aAiYrm2thxnxiwFC4=
+>>>>>>> Stashed changes
 		</data>
 		<key>Frameworks/GTMAppAuth.framework/Info.plist</key>
 		<data>
@@ -338,7 +362,11 @@
 		</data>
 		<key>Frameworks/GoogleSignIn.framework/GoogleSignIn</key>
 		<data>
+<<<<<<< Updated upstream
 		Ww3LOyRxTRQEnIahGlfX9oLeleg=
+=======
+		Kb+XkNF8E9xDtlZHWSAnU2ZAI1U=
+>>>>>>> Stashed changes
 		</data>
 		<key>Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/Info.plist</key>
 		<data>
@@ -927,7 +955,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< Updated upstream
 			xUlW1YnvTluTPRAWNZqzy3cvkLOBoqq7Xf7VrNQvc+0=
+=======
+			VVS0E2WMaeNjXaI8yLxL1LJYb3udx552wKWp+lCNi6U=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -941,7 +973,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< Updated upstream
 			OxW5iub6YLzRL2xObfeeVBwQLfsgb5hREmS1FLkPkFA=
+=======
+			prxbkdK/k5fL7UTbV/d3p7Pg8Ys1vY+swE1goH3nzbA=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
@@ -1011,7 +1047,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< Updated upstream
 			CKodJHAn22K6v8TcCtEX/irKN4jll03hlGbTjls9eOs=
+=======
+			pcK/JOIPRuTJwV4v5vdNMgfqLTrzILG+yZyOaGVE7fI=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1102,7 +1142,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< Updated upstream
 			ggi6UgzlusxWwlvpK0C/gfOs1mzYZLJWX9I7XIV4BQk=
+=======
+			TGDtnTClIDlYQ7rufm8qVPpQXfajzTx4feql8UgQs5Q=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseAuth.framework/Info.plist</key>
@@ -1144,7 +1188,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< Updated upstream
 			xMeT2VCStETIxuKbtYC1d2z2N3QMpgOG/r/ZQgInIR4=
+=======
+			s4MeiBN/m8cUafZBJrac956VYy5bmgSXy+4OsZYu/yQ=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseCore.framework/Info.plist</key>
@@ -1396,7 +1444,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< Updated upstream
 			353XCdRFTC9Er0NaQqVoBuT00ZnfuoIxGoJ42kDxqz0=
+=======
+			ZBbaJVSjIRbhmsf+XpKyx2mNoXikRufKUz63wKePL7c=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Frameworks/GTMAppAuth.framework/Info.plist</key>
@@ -1438,7 +1490,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< Updated upstream
 			ryOUFIYaH1TuIq7ihbKTe6o88CpH8VP+Gk186gx9paA=
+=======
+			W0E8jt6GiNkBmq4lzwyLv4xBNpwbQCjEr3YHKwlrbKk=
+>>>>>>> Stashed changes
 			</data>
 		</dict>
 		<key>Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/Info.plist</key>
