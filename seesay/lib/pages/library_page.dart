@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:seesay/services/practice/library_practice.dart';
 
@@ -125,52 +126,130 @@ class _LibraryPageState extends State<LibraryPage> {
               const SizedBox(
                 height: 20,
               ),
-              for (int index = 0; index < titles.length; index++)
-                Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LibraryPractice(
-                              title: titles[index],
-                              content: keywords[index],
-                            ),
-                          ),
-                        );
-                        // const Practice1();
-                        // print("기본글자1 clicked");
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection('problems/user_problems/list')
+                    .snapshots(),
+                builder: (context,
+                    AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                        snapshot) {
+                  if (snapshot.hasError) {
+                    print('에러있어요.');
+                  }
+
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    print('waiting...');
+                    // return Column(
+                    //   children: [
+                    //     const Center(
+                    //       child: CircularProgressIndicator(),
+                    //     ),
+                    //   ],
+                    // );
+                  }
+
+                  final docs = snapshot.data!.docs;
+                  return ListView.builder(
+                    itemCount: docs.length,
+                    itemBuilder: (context, index) {
+                      return Column(
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                titles[index],
-                                style: const TextStyle(fontSize: 20),
-                              ),
-                              Text(
-                                keywords[index],
-                                style: const TextStyle(
-                                  fontSize: 18,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LibraryPractice(
+                                    title: docs[index]['title'],
+                                    content: docs[index]['content'],
+                                  ),
+                                ),
+                              );
+                              // const Practice1();
+                              // print("기본글자1 clicked");
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      docs[index]['title'],
+                                      style: const TextStyle(fontSize: 20),
+                                    ),
+                                    Text(
+                                      docs[index]['keyword'],
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward_ios,
                                   color: Colors.grey,
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                          const Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey,
-                          ),
+                          const Lines(),
                         ],
-                      ),
-                    ),
-                    const Lines(),
-                  ],
-                ),
+                      );
+                    },
+                  );
+
+                  return Column(children: const [Text('데이터 없음')]);
+                },
+              ),
+
+              // for (int index = 0; index < titles.length; index++)
+              // Column(
+              //   children: [
+              //     GestureDetector(
+              //       onTap: () {
+              //         Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => LibraryPractice(
+              //               title: titles[index],
+              //               content: keywords[index],
+              //             ),
+              //           ),
+              //         );
+              //         // const Practice1();
+              //         // print("기본글자1 clicked");
+              //       },
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //         children: [
+              //           Column(
+              //             crossAxisAlignment: CrossAxisAlignment.start,
+              //             children: [
+              //               Text(
+              //                 titles[index],
+              //                 style: const TextStyle(fontSize: 20),
+              //               ),
+              //               Text(
+              //                 keywords[index],
+              //                 style: const TextStyle(
+              //                   fontSize: 18,
+              //                   color: Colors.grey,
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //           const Icon(
+              //             Icons.arrow_forward_ios,
+              //             color: Colors.grey,
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //     const Lines(),
+              //   ],
+              // ),
             ],
           ),
         ),

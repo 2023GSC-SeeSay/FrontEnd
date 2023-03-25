@@ -32,6 +32,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "cloud_firestore",
+      "rootUri": "file:///Users/eunjin/.pub-cache/hosted/pub.dev/cloud_firestore-4.4.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "cloud_firestore_platform_interface",
+      "rootUri": "file:///Users/eunjin/.pub-cache/hosted/pub.dev/cloud_firestore_platform_interface-5.11.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "cloud_firestore_web",
+      "rootUri": "file:///Users/eunjin/.pub-cache/hosted/pub.dev/cloud_firestore_web-3.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///Users/eunjin/.pub-cache/hosted/pub.dev/collection-1.17.0",
       "packageUri": "lib/",
@@ -404,7 +422,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-23T04:50:49.149749Z",
+  "generated": "2023-03-24T17:53:48.869349Z",
   "generator": "pub",
   "generatorVersion": "2.19.2"
 }

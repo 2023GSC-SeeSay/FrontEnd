@@ -5,6 +5,7 @@ import 'package:seesay/components/add_textfield.dart';
 import 'package:seesay/components/submit_button.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:seesay/services/practice/upload_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CounterStorage {
   Future<String> get _localPath async {
@@ -92,6 +93,17 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
     return writeContent(widget.content);
 
     // 파일에 String 타입으로 변수 값 쓰기
+  }
+
+  WriteCloud(title, keyword, content) {
+    FirebaseFirestore.instance
+        .collection('problems/user_problems/list')
+        .doc('library$_counter')
+        .set({
+      'title': title,
+      'keyword': keyword,
+      'content': content,
+    });
   }
 
   @override
@@ -183,6 +195,11 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
                         ),
                       );
                     }
+                    WriteCloud(
+                      titleController.text,
+                      keywordController.text,
+                      widget.content,
+                    );
                     Future<File> futurefile = _incrementCounter();
                     File file;
                     futurefile.then((value) {
