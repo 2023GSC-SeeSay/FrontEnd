@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  http: ^0.13.5    
+  http: ^0.13.5 
   firebase_auth: ^4.2.9
   google_sign_in: ^6.0.2
   firebase_core: ^2.8.0
@@ -48,6 +48,8 @@ dependencies:
   record: ^4.4.4
 
   # audioplayers: ^1.0.1
+  flutter_cache_manager: ^3.3.0
+  cached_network_image: ^3.2.3
 
 dependency_overrides:
   firebase_messaging_platform_interface: 4.2.16

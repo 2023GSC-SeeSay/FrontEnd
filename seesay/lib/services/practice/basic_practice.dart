@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:seesay/services/practice/record.dart';
 
@@ -195,61 +198,15 @@ class _BasicPracticeState extends State<BasicPractice> {
               controller: _pageController,
               children: [
                 Center(
-                  child: Scaffold(
-                    body: Padding(
-                      padding: const EdgeInsets.all(25),
-                      child: Center(
-                        child: Column(
-                          children: const [
-                            Text(
-                              "혀 모양",
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "혀 모양에 대한 설명",
-                              style: TextStyle(
-                                fontSize: 25,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  child: explanationGif(
+                    title: "혀 모양",
+                    exp: "혀 모양에 대한 설명",
                   ),
                 ),
                 Center(
-                  child: Scaffold(
-                    body: Padding(
-                      padding: const EdgeInsets.all(25),
-                      child: Center(
-                        child: Column(
-                          children: const [
-                            Text(
-                              "입 모양",
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "입모양",
-                              style: TextStyle(
-                                fontSize: 25,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  child: explanationGif(
+                    title: "입 모양",
+                    exp: "입 모양에 대한 설명",
                   ),
                 ),
                 const Center(
@@ -308,5 +265,94 @@ class _BasicPracticeState extends State<BasicPractice> {
         ],
       ),
     );
+  }
+}
+
+class explanationGif extends StatefulWidget {
+  String title;
+  String exp;
+
+  explanationGif({
+    super.key,
+    required this.title,
+    required this.exp,
+    // required this.gif,
+  });
+
+  @override
+  State<explanationGif> createState() => _explanationGifState();
+}
+
+class _explanationGifState extends State<explanationGif> {
+  // final String gifUrl = "gs://seesay.appspot.com/gif/test.gif";
+  final String gifUrl = "gif/test.gif";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: Center(
+          child: Column(
+            children: [
+              Text(
+                widget.title,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                widget.exp,
+                style: const TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              FutureBuilder(
+                future: loadGifFromFirebase(),
+                builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done &&
+                      snapshot.hasData) {
+                    //다운로드가 완료되었고, 데이터가 있다면 GIF 파일을 표시
+                    print("snapshotdata: ${snapshot.data}");
+                    print("snapshotdatapath: ${snapshot.data?.path ?? ''}");
+                    // return CachedNetworkImage(
+                    //   // imageUrl: snapshot.data?.path ?? '',
+                    //   imageUrl: "gs://seesay.appspot.com/gif/test.gif",
+                    //   placeholder: (context, url) =>
+                    //       const CircularProgressIndicator(),
+                    //   errorWidget: (context, url, error) =>
+                    //       const Icon(Icons.error),
+                    // );
+                    return Image.file(
+                      snapshot.data!,
+                      width: 400,
+                      height: 300,
+                      fit: BoxFit.contain,
+                    );
+                  } else {
+                    return const CircularProgressIndicator(
+                        color: Color(0xFFCE4040));
+                  }
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<File> loadGifFromFirebase() async {
+    final Reference ref = FirebaseStorage.instance.ref().child(gifUrl);
+    final File file =
+        await DefaultCacheManager().getSingleFile(await ref.getDownloadURL());
+    return file;
   }
 }
