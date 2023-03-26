@@ -6,11 +6,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:seesay/pages/setting_page.dart';
 
 class RootPage extends StatefulWidget {
+  final String userEmail;
   final String userName;
   final String photoURL;
 
   const RootPage({
     super.key,
+    required this.userEmail,
     required this.userName,
     required this.photoURL,
   });
@@ -45,7 +47,9 @@ class _RootState extends State<RootPage> {
       context,
       MaterialPageRoute(
         builder: (context) => (SettingPage(
+          userEmail: widget.userEmail,
           photoURL: widget.photoURL,
+          userName: widget.userName,
         )),
       ),
     );

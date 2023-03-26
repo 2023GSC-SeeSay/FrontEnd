@@ -5,11 +5,15 @@ import 'package:seesay/setting/setting2.dart';
 import 'package:seesay/setting/team_info.dart';
 
 class SettingPage extends StatefulWidget {
+  final String userEmail;
   final String photoURL;
+  final String userName;
 
   const SettingPage({
     super.key,
+    required this.userEmail,
     required this.photoURL,
+    required this.userName,
   });
 
   @override
@@ -73,10 +77,14 @@ class _SettingPageState extends State<SettingPage> {
                   child: Column(
                     children: [
                       Container(
-                        alignment: Alignment.center,
                         height: 70,
-                        width: 500,
+                        width: 300,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
                         child: Row(
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           // crossAxisAlignment: ,
                           children: [
@@ -89,18 +97,19 @@ class _SettingPageState extends State<SettingPage> {
                               ),
                             ),
                             const SizedBox(
-                              width: 10,
+                              width: 30,
                             ),
                             // const Icon(Icons.person),
                             // const Expanded(
-                            const Text(
-                              "Personal Information",
+                            Text(
+                              widget.userEmail,
                               textAlign: TextAlign.center,
                             ),
                             // ),
                           ],
                         ),
                       ),
+                      const SizedBox(height: 20),
                       ListView.separated(
                         shrinkWrap: true,
                         separatorBuilder: (context, index) => const Divider(
@@ -124,7 +133,10 @@ class _SettingPageState extends State<SettingPage> {
                                   height: 70,
                                   color: Colors.white,
                                   alignment: Alignment.centerLeft,
-                                  child: const Text("Logout"),
+                                  child: const Text(
+                                    "Logout",
+                                    style: TextStyle(fontSize: 15),
+                                  ),
                                 ),
                               ),
                             );
@@ -148,7 +160,10 @@ class _SettingPageState extends State<SettingPage> {
                                       height: 70,
                                       color: Colors.white,
                                       alignment: Alignment.centerLeft,
-                                      child: Text(settingContents[index]),
+                                      child: Text(
+                                        settingContents[index],
+                                        style: const TextStyle(fontSize: 15),
+                                      ),
                                     ),
                                   ),
                                 ),

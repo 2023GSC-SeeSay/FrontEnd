@@ -14,6 +14,7 @@ class AuthPage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return RootPage(
+              userEmail: snapshot.data!.email!,
               userName: snapshot.data!.displayName!,
               photoURL: snapshot.data!.photoURL!,
             );
