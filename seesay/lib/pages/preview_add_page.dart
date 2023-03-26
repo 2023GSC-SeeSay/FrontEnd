@@ -7,44 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:seesay/services/practice/upload_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class CounterStorage {
-  Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-
-    return directory.path;
-  }
-
-  Future<File> get _localCounterFile async {
-    final path = await _localPath;
-    print('카운터 파일 경로: $path');
-    return File('$path/counter.txt');
-  }
-
-  Future<int> readCounter() async {
-    try {
-      final file = await _localCounterFile;
-
-      // 파일 읽기
-      String contents = await file.readAsString();
-
-      return int.parse(contents);
-    } catch (e) {
-      // 에러가 발생할 경우 0을 반환
-      return 0;
-    }
-  }
-
-  Future<File> writeCounter(int counter) async {
-    final file = await _localCounterFile;
-
-    // 파일 쓰기
-    return file.writeAsString('$counter');
-  }
-}
-
 class PreviewAddPage extends StatefulWidget {
-  final CounterStorage storage = CounterStorage();
-
   String content;
 
   PreviewAddPage({
@@ -57,11 +20,11 @@ class PreviewAddPage extends StatefulWidget {
 }
 
 class _PreviewAddPageState extends State<PreviewAddPage> {
-  int _counter = 0;
+  final int _counter = 0;
   Future<File> get _localContentFile async {
-    final path = await widget.storage._localPath;
+    final path = await _localPath;
     print('컨텐츠 파일 경로: $path');
-    return File('$path/library$_counter.txt');
+    return File('$path/${titleController.text}.txt');
   }
 
   Future<File> writeContent(String content) async {
@@ -71,25 +34,31 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
     return file.writeAsString(content);
   }
 
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+
+    return directory.path;
+  }
+
   final titleController = TextEditingController();
 
   final keywordController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-    widget.storage.readCounter().then((int value) {
-      setState(() {
-        _counter = value;
-      });
-    });
-  }
+  // void initState() {
+  //   super.initState();
+  //   widget.storage.readCounter().then((int value) {
+  //     setState(() {
+  //       _counter = value;
+  //     });
+  //   });
+  // }
 
   Future<File> _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-    widget.storage.writeCounter(_counter);
+    // setState(() {
+    //   _counter++;
+    // });
+    // widget.storage.writeCounter(_counter);
     return writeContent(widget.content);
 
     // 파일에 String 타입으로 변수 값 쓰기
@@ -98,7 +67,7 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
   WriteCloud(title, keyword, content) {
     FirebaseFirestore.instance
         .collection('problems/user_problems/list')
-        .doc('library$_counter')
+        .doc(title)
         .set({
       'title': title,
       'keyword': keyword,
