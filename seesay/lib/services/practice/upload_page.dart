@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class UploadPage extends StatefulWidget {
   final File file; // 어플에서 업로드 하는 파일의 경로
   bool isAudio;
+
   UploadPage({
     this.isAudio = true,
     required this.file,

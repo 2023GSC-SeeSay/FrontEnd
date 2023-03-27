@@ -9,12 +9,14 @@ class RootPage extends StatefulWidget {
   final String userEmail;
   final String userName;
   final String photoURL;
+  bool toLibrary;
 
-  const RootPage({
+  RootPage({
     super.key,
     required this.userEmail,
     required this.userName,
     required this.photoURL,
+    this.toLibrary = false,
   });
 
   @override
@@ -36,7 +38,7 @@ class _RootState extends State<RootPage> {
     });
   }
 
-  void onAdd() {
+  void toLibrary() {
     setState(() {
       currentIndex = 2;
     });
@@ -62,9 +64,7 @@ class _RootState extends State<RootPage> {
         userName: widget.userName,
       ),
       const PracticePage(),
-      LibraryPage(
-        gotoAddPage: onAdd,
-      ),
+      const LibraryPage(),
       // const AddPage(),
     ];
 

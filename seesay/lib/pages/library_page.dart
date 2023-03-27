@@ -4,11 +4,8 @@ import 'package:seesay/pages/content_add_page.dart';
 import 'package:seesay/services/practice/library_practice.dart';
 
 class LibraryPage extends StatefulWidget {
-  final Function() gotoAddPage;
-
   const LibraryPage({
     super.key,
-    required this.gotoAddPage,
   });
 
   @override
@@ -18,15 +15,6 @@ class LibraryPage extends StatefulWidget {
 class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
-    // if (widget.newtitle != null && widget.newkeyword != null) {
-    //   updatePreview(
-    //     title: widget.newtitle,
-    //     keyword: widget.newkeyword,
-    //   );
-    //   widget.newtitle = null;
-    //   widget.newkeyword = null;
-    // }
-
     return Padding(
       padding: const EdgeInsets.all(19),
       child: Scaffold(
@@ -120,7 +108,7 @@ class _LibraryPageState extends State<LibraryPage> {
                   // if (snapshot.connectionState == ConnectionState.done) {
                   final docs = snapshot.data!.docs;
                   return ListView.builder(
-                    scrollDirection: Axis.vertical,
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: docs.length,
                     itemBuilder: (context, index) {
