@@ -24,94 +24,96 @@ class WordPage extends StatelessWidget {
           color: Color(0xFFCE4040),
         ),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                doc['title'],
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Color(0xFFCE4040),
-                ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.zero,
+        child: Column(
+          children: [
+            Text(
+              doc['title'],
+              style: const TextStyle(
+                fontSize: 20,
+                color: Color(0xFFCE4040),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(19.0),
-                    child: ListView.separated(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BasicPractice(
-                                  title: doc['title'],
-                                  content: doc['intro'],
-                                ),
+            ),
+            Text(
+              doc['intro'],
+              style: const TextStyle(fontSize: 30, color: Colors.black),
+            ),
+            Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(19.0),
+                  child: ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BasicPractice(
+                                title: doc['title'],
+                                content: doc['intro'],
                               ),
-                            );
-                            // const Practice1();
-                            // print("기본글자1 clicked");
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 10,
                             ),
-                            child: Row(
-                              children: [
-                                Text(
-                                  words[index],
-                                  style: const TextStyle(fontSize: 20),
-                                ),
-                              ],
-                            ),
+                          );
+                          // const Practice1();
+                          // print("기본글자1 clicked");
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
                           ),
-                        );
-                      },
-                      separatorBuilder: (context, index) => const Divider(
-                        color: Colors.grey,
-                      ),
-                      itemCount: words.length,
+                          child: Row(
+                            children: [
+                              Text(
+                                words[index],
+                                style: const TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) => const Divider(
+                      color: Colors.grey,
                     ),
-                  )
+                    itemCount: words.length,
+                  ),
+                )
 
-                  // Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: GestureDetector(
-                  //     onTap: () {
-                  //       Navigator.push(
-                  //         context,
-                  //         MaterialPageRoute(
-                  //           builder: (context) => BasicPractice(
-                  //             title: doc['title'],
-                  //             content: doc['intro'],
-                  //           ),
-                  //         ),
-                  //       );
-                  //       // const Practice1();
-                  //       // print("기본글자1 clicked");
-                  //     },
-                  //     child: Row(
-                  //       children: [
-                  //         Text(
-                  //           words[index],
-                  //           style: const TextStyle(fontSize: 20),
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
-                  // const Lines(),
-                ],
-              ),
-            ],
-          ),
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //           builder: (context) => BasicPractice(
+                //             title: doc['title'],
+                //             content: doc['intro'],
+                //           ),
+                //         ),
+                //       );
+                //       // const Practice1();
+                //       // print("기본글자1 clicked");
+                //     },
+                //     child: Row(
+                //       children: [
+                //         Text(
+                //           words[index],
+                //           style: const TextStyle(fontSize: 20),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+                // const Lines(),
+              ],
+            ),
+          ],
         ),
       ),
     );
