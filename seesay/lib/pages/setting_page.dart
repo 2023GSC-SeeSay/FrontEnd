@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:seesay/setting/how_to_use.dart';
-import 'package:seesay/setting/setting2.dart';
+import 'package:seesay/setting/privacy_policy.dart';
 import 'package:seesay/setting/team_info.dart';
 
 class SettingPage extends StatefulWidget {

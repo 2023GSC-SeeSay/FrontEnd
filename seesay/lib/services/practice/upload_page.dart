@@ -55,6 +55,13 @@ class _UploadPageState extends State<UploadPage> {
                 color: Color(0xFFCE4040),
               ),
             const Text("Score of your pronounciation: "),
+            const Text("000점"),
+            IconButton(
+                iconSize: 80,
+                onPressed: () {
+                  Navigator.popUntil(context, ModalRoute.withName('/'));
+                },
+                icon: const Icon(Icons.home)),
             // const SizedBox(height: 20),
             // Text('File Name: $_fileName'),
             // const SizedBox(height: 20),
