@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:record/record.dart';
 import 'package:seesay/services/practice/upload_page.dart';
 
@@ -85,12 +87,48 @@ class _AudioRecorderState extends State<AudioRecorder> {
     await _audioRecorder.resume();
   }
 
+  final String gifUrl1 = "gif/test.gif";
+  final String gifUrl2 = "gif/test.gif";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          FutureBuilder(
+              future: loadGifFromFirebase1(),
+              builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
+                if (snapshot.connectionState == ConnectionState.done &&
+                    snapshot.hasData) {
+                  return Image.file(
+                    snapshot.data!,
+                    width: 400,
+                    height: 300,
+                    fit: BoxFit.contain,
+                  );
+                } else {
+                  return const CircularProgressIndicator(
+                      color: Color(0xFFce4040));
+                }
+              }),
+          FutureBuilder(
+              future: loadGifFromFirebase2(),
+              builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
+                if (snapshot.connectionState == ConnectionState.done &&
+                    snapshot.hasData) {
+                  return Image.file(
+                    snapshot.data!,
+                    width: 400,
+                    height: 300,
+                    fit: BoxFit.contain,
+                  );
+                } else {
+                  return const CircularProgressIndicator(
+                      color: Color(0xFFce4040));
+                }
+              }),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -113,6 +151,20 @@ class _AudioRecorderState extends State<AudioRecorder> {
         ],
       ),
     );
+  }
+
+  Future<File> loadGifFromFirebase1() async {
+    final Reference ref = FirebaseStorage.instance.ref().child(gifUrl1);
+    final File file =
+        await DefaultCacheManager().getSingleFile(await ref.getDownloadURL());
+    return file;
+  }
+
+  Future<File> loadGifFromFirebase2() async {
+    final Reference ref = FirebaseStorage.instance.ref().child(gifUrl2);
+    final File file =
+        await DefaultCacheManager().getSingleFile(await ref.getDownloadURL());
+    return file;
   }
 
   @override
