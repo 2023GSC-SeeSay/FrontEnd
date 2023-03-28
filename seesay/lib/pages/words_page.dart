@@ -38,6 +38,7 @@ class WordPage extends StatelessWidget {
             Text(
               doc['intro'],
               style: const TextStyle(fontSize: 30, color: Colors.black),
+              textAlign: TextAlign.center,
             ),
             Column(
               // mainAxisAlignment: MainAxisAlignment.center,

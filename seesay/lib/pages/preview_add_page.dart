@@ -104,11 +104,11 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
                 ),
                 const Text(
                   textAlign: TextAlign.center,
-                  "서재에 미리보기로 표시될\n제목과 키워드를 입력하세요.",
+                  "Enter the title and keywords that will be displayed as previews in your library.",
                   style: TextStyle(fontSize: 25, color: Colors.black),
                 ),
                 const Text(
-                  "(100자 이하)",
+                  "(100 characters or less)",
                   style: TextStyle(fontSize: 25, color: Colors.black),
                 ),
                 const SizedBox(
@@ -116,34 +116,34 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
                 ),
                 MyTextField(
                   controller: titleController,
-                  hintText: '제목을 입력하세요.',
-                  labelText: '제목',
+                  hintText: 'Please enter a title.',
+                  labelText: 'title',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 MyTextField(
                   controller: keywordController,
-                  hintText: '키워드를 입력하세요.',
-                  labelText: '키워드',
+                  hintText: 'Please enter a keyword.',
+                  labelText: 'keyword',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 SubmitButton(
-                  buttonText: '저장',
+                  buttonText: 'save',
                   onTap: () {
                     if (titleController.text.isEmpty) {
                       return showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          content: const Text('제목을 입력해주세요.'),
+                          content: const Text('Please enter a title.'),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: const Text('확인'),
+                              child: const Text('ok'),
                             ),
                           ],
                         ),
@@ -152,13 +152,13 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
                       return showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          content: const Text('키워드를 입력해주세요.'),
+                          content: const Text('Please enter a keyword.'),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: const Text('확인'),
+                              child: const Text('ok'),
                             ),
                           ],
                         ),

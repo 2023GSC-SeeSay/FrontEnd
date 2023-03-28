@@ -36,38 +36,45 @@ class ContentAddPage extends StatelessWidget {
                   height: 20,
                 ),
                 const Text(
-                  "발음하고 싶은 문장을 입력하세요.",
-                  style: TextStyle(fontSize: 25, color: Colors.black),
+                  "Enter the sentence \nyou want to pronounce",
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
                 const Text(
-                  "(50자 이하)",
-                  style: TextStyle(fontSize: 25, color: Colors.black),
+                  "(50 characters or less)",
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.black,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 MyTextField(
                   controller: textController,
-                  hintText: '문장을 입력하세요.',
-                  labelText: '문장',
+                  hintText: 'Please enter a sentence.',
+                  labelText: 'sentence',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 SubmitButton(
-                    buttonText: '다음',
+                    buttonText: 'Next',
                     onTap: () {
                       if (textController.text.isEmpty) {
                         return showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            content: const Text('내용을 입력해주세요.'),
+                            content: const Text('Please enter your details.'),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text('확인'),
+                                child: const Text('ok'),
                               ),
                             ],
                           ),

@@ -4,6 +4,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:seesay/services/practice/record.dart';
 
+const String gifUrlmouth = "gif/0_60_mouth.gif";
+const String gifUrltongue = "gif/0_60_tongue.gif";
+
 class BasicPractice extends StatefulWidget {
   final String content;
   final String title;
@@ -49,6 +52,7 @@ class _BasicPracticeState extends State<BasicPractice> {
                   // "~~를 발음해 봅시다",
                   widget.content,
                   style: const TextStyle(fontSize: 30, color: Colors.black),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 20,
@@ -195,18 +199,21 @@ class _BasicPracticeState extends State<BasicPractice> {
           ),
           Expanded(
             child: PageView(
+              physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
               children: [
                 Center(
                   child: explanationGif(
                     title: "혀 모양",
                     exp: "혀 모양에 대한 설명",
+                    gifUrl: gifUrltongue,
                   ),
                 ),
                 Center(
                   child: explanationGif(
                     title: "입 모양",
                     exp: "입 모양에 대한 설명",
+                    gifUrl: gifUrlmouth,
                   ),
                 ),
                 const Center(
@@ -271,11 +278,13 @@ class _BasicPracticeState extends State<BasicPractice> {
 class explanationGif extends StatefulWidget {
   String title;
   String exp;
+  String gifUrl;
 
   explanationGif({
     super.key,
     required this.title,
     required this.exp,
+    required this.gifUrl,
     // required this.gif,
   });
 
@@ -284,8 +293,9 @@ class explanationGif extends StatefulWidget {
 }
 
 class _explanationGifState extends State<explanationGif> {
-  // final String gifUrl = "gs://seesay.appspot.com/gif/test.gif";
-  final String gifUrl = "gif/test.gif";
+  // final String gifUrlmouth = "gs://seesay.appspot.com/gif/test.gif";
+  // final String gifUrlmouth = "gif/0_60_mouth.gif";
+  // final String gifUrltongue = "gif/0_60_tongue.gif";
 
   @override
   Widget build(BuildContext context) {
@@ -315,7 +325,7 @@ class _explanationGifState extends State<explanationGif> {
                 height: 50,
               ),
               FutureBuilder(
-                future: loadGifFromFirebase(),
+                future: loadGifFromFirebase(widget.gifUrl),
                 builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
                   if (snapshot.connectionState == ConnectionState.done &&
                       snapshot.hasData) {
@@ -349,7 +359,7 @@ class _explanationGifState extends State<explanationGif> {
     );
   }
 
-  Future<File> loadGifFromFirebase() async {
+  Future<File> loadGifFromFirebase(gifUrl) async {
     final Reference ref = FirebaseStorage.instance.ref().child(gifUrl);
     final File file =
         await DefaultCacheManager().getSingleFile(await ref.getDownloadURL());

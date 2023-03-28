@@ -95,7 +95,7 @@ class PracticePage extends StatelessWidget {
                               );
                             },
                             child: RealPractice(
-                                index: index,
+                                index: index + 1,
                                 title: doc['title'],
                                 intro: doc['intro']),
                           ),
