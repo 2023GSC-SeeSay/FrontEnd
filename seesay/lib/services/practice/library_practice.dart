@@ -113,7 +113,7 @@ class _LibraryPracticeState extends State<LibraryPractice> {
                         },
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(130, 35)),
+                              MaterialStateProperty.all(const Size(129, 35)),
                           elevation: const MaterialStatePropertyAll(0),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -156,7 +156,7 @@ class _LibraryPracticeState extends State<LibraryPractice> {
                         },
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(130, 35)),
+                              MaterialStateProperty.all(const Size(129, 35)),
                           elevation: const MaterialStatePropertyAll(0),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -199,7 +199,7 @@ class _LibraryPracticeState extends State<LibraryPractice> {
                         },
                         style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(130, 35)),
+                              MaterialStateProperty.all(const Size(129, 35)),
                           alignment: Alignment.center,
                           elevation: const MaterialStatePropertyAll(0),
                           shape:

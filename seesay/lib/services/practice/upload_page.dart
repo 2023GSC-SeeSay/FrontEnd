@@ -35,46 +35,153 @@ class _UploadPageState extends State<UploadPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      // key: _scaffoldKey,
-      appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Color(0xFFCE4040),
+        // key: _scaffoldKey,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: const IconThemeData(
+            color: Color(0xFFCE4040),
+          ),
         ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (_uploading) const Text("Uploading"),
-            const SizedBox(height: 30),
-            if (_uploading)
-              const CircularProgressIndicator(
-                color: Color(0xFFCE4040),
-              ),
-            const Text("Score of your pronounciation: "),
-            const Text("000점"),
-            IconButton(
-                iconSize: 80,
-                onPressed: () {
-                  Navigator.popUntil(context, ModalRoute.withName('/'));
-                },
-                icon: const Icon(Icons.home)),
-            // const SizedBox(height: 20),
-            // Text('File Name: $_fileName'),
-            // const SizedBox(height: 20),
-            // ElevatedButton(
-            //   onPressed: _uploading ? null : _uploadFile,
-            //   child: const Text('Upload File'),
-            // ),
-            // const SizedBox(height: 20),
-            // _url != null ? Text('File URL: $_url') : Container(),
-          ],
-        ),
-      ),
-    );
+        body: widget.isAudio
+            ? Center(
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Score",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFCE4040),
+                      ),
+                    ),
+
+                    const SizedBox(height: 30),
+
+                    if (_uploading)
+                      Column(
+                        children: const [
+                          Text("Uploading"),
+                          SizedBox(height: 30),
+                          CircularProgressIndicator(
+                            color: Color(0xFFCE4040),
+                          ),
+                        ],
+                      ),
+
+                    if (!_uploading)
+                      Column(
+                        children: [
+                          const Text(
+                            "100",
+                            style:
+                                TextStyle(fontSize: 100, color: Colors.black),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          const Text(
+                            "Perfect!",
+                            style: TextStyle(
+                              color: Color(0xFFCE4040),
+                              fontSize: 25,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const Text(
+                            "Go to main page and\npronounce other words too",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          SizedBox(
+                            width: 200,
+                            child: Image.asset(
+                                "assets/images/MovingSeeSayBig.gif"),
+                          ),
+                          const SizedBox(
+                            height: 35,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.all(19.0),
+                            child: GotoHomeButton(),
+                          ),
+                        ],
+                      ),
+
+                    // const Text("Score of your pronounciation: "),
+                    // const Text("000점"),
+                    // IconButton(
+                    //     iconSize: 80,
+                    //     onPressed: () {
+                    //       Navigator.popUntil(context, ModalRoute.withName('/'));
+                    //     },
+                    //     icon: const Icon(Icons.home)),
+
+                    // const SizedBox(height: 20),
+                    // Text('File Name: $_fileName'),
+                    // const SizedBox(height: 20),
+                    // ElevatedButton(
+                    //   onPressed: _uploading ? null : _uploadFile,
+                    //   child: const Text('Upload File'),
+                    // ),
+                    // const SizedBox(height: 20),
+                    // _url != null ? Text('File URL: $_url') : Container(),
+                  ],
+                ),
+              )
+            : Column(
+                children: [
+                  const Text(
+                    "Library",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color(0xFFCE4040),
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  const Text(
+                    "Added Successfully!",
+                    style: TextStyle(
+                      color: Color(0xFFCE4040),
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const Text(
+                    "go to library to see your word",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const Text(
+                    "",
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: Image.asset("assets/images/MovingSeeSayBig.gif"),
+                  ),
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(19.0),
+                    child: GotoHomeButton(),
+                  ),
+                ],
+              ));
   }
 
   void _uploadFile() async {
@@ -143,5 +250,40 @@ class _UploadPageState extends State<UploadPage> {
     //   // if (!widget.file.existsSync()) print("File does not exits");
     //   print(e.toString());
     // }
+  }
+}
+
+class GotoHomeButton extends StatelessWidget {
+  const GotoHomeButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.popUntil(context, ModalRoute.withName('/'));
+      },
+      child: Container(
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.red[800],
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              "Got it",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

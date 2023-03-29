@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
           ),
           Container(
             color: Colors.white,
-            height: 450,
+            height: 350,
             alignment: Alignment.center,
             child: const Image(
               width: 300,

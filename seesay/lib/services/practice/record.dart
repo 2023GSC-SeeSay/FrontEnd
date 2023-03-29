@@ -161,9 +161,9 @@ class _AudioRecorderState extends State<AudioRecorder> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(width: 40),
+                const SizedBox(width: 20),
                 _buildRecordStopControl(),
-                const SizedBox(width: 40),
+                const SizedBox(width: 30),
                 _buildPauseResumeControl(),
                 const SizedBox(width: 20),
               ],
@@ -362,7 +362,7 @@ class RecordPageState extends State<RecordPage> {
                       style: TextStyle(fontSize: 30, color: Color(0xFFCE4040)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(60, 10, 60, 10),
+                      padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -387,6 +387,9 @@ class RecordPageState extends State<RecordPage> {
                               icon: const Icon(Icons.restart_alt_rounded),
                               color: const Color(0xFFCE4040),
                             ),
+                          ),
+                          const SizedBox(
+                            width: 20,
                           ),
                           Container(
                             alignment: Alignment.center,

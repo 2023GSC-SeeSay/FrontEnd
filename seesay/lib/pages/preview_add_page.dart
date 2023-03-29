@@ -107,10 +107,6 @@ class _PreviewAddPageState extends State<PreviewAddPage> {
                   "Enter the title and keywords that will be displayed as previews in your library.",
                   style: TextStyle(fontSize: 25, color: Colors.black),
                 ),
-                const Text(
-                  "(100 characters or less)",
-                  style: TextStyle(fontSize: 25, color: Colors.black),
-                ),
                 const SizedBox(
                   height: 20,
                 ),
