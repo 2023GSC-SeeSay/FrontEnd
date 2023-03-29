@@ -7,128 +7,132 @@ class PracticePage extends StatelessWidget {
   final int totalIndex = 8;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(19),
-      child: Scaffold(
-        // appBar: AppBar(
-        //   toolbarHeight: 100,
-        //   // titleSpacing: 100,
-        //   backgroundColor: Colors.transparent,
-        //   elevation: 0,
-        //   // surfaceTintColor: Colors.white,
-        //   title: Column(
-        //     children: const [
-        //       Text(
-        //         "Practice",
-        //         style: TextStyle(
-        //             fontSize: 20,
-        //             color: Color(0xFFCE4040),
-        //             fontWeight: FontWeight.normal),
-        //       ),
-        //       SizedBox(height: 5),
-        //       Text(
-        //         "Basic Pronounciation",
-        //         style: TextStyle(
-        //           color: Colors.black,
-        //           fontSize: 33,
-        //           fontWeight: FontWeight.bold,
-        //         ),
-        //       ),
-        //       SizedBox(
-        //         height: 20,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const Text(
-                "Practice",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Color(0xFFCE4040),
+    return Container(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(19),
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          // appBar: AppBar(
+          //   toolbarHeight: 100,
+          //   // titleSpacing: 100,
+          //   backgroundColor: Colors.transparent,
+          //   elevation: 0,
+          //   // surfaceTintColor: Colors.white,
+          //   title: Column(
+          //     children: const [
+          //       Text(
+          //         "Practice",
+          //         style: TextStyle(
+          //             fontSize: 20,
+          //             color: Color(0xFFCE4040),
+          //             fontWeight: FontWeight.normal),
+          //       ),
+          //       SizedBox(height: 5),
+          //       Text(
+          //         "Basic Pronounciation",
+          //         style: TextStyle(
+          //           color: Colors.black,
+          //           fontSize: 33,
+          //           fontWeight: FontWeight.bold,
+          //         ),
+          //       ),
+          //       SizedBox(
+          //         height: 20,
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Text(
+                  "Practice",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFFCE4040),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5),
-              const Text(
-                "Basic Pronounciation",
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
+                const SizedBox(height: 5),
+                const Text(
+                  "Basic Pronounciation",
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              StreamBuilder(
-                stream: FirebaseFirestore.instance
-                    .collection('problems/basic_problems/list')
-                    .snapshots(),
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
-                        snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-
-                  final docs = snapshot.data!.docs;
-                  return ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: docs.length,
-                    itemBuilder: (context, index) {
-                      final doc = docs[index];
-                      return Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => WordPage(
-                                    doc: doc,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: RealPractice(
-                                index: index + 1,
-                                title: doc['title'],
-                                intro: doc['intro']),
-                          ),
-                          if (index != docs.length - 1) const Lines(),
-                        ],
+                const SizedBox(
+                  height: 20,
+                ),
+                StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('problems/basic_problems/list')
+                      .snapshots(),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                          snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
                       );
+                    }
 
-                      //     return Container(
-                      //       padding: const EdgeInsets.all(8.0),
-                      //       child: Text(
-                      //         docs[index]['text'],
-                      //         style: const TextStyle(fontSize: 20.0),
-                      //       ),
-                      //     );
-                      //   },
-                      // );
-                    },
-                  );
-                },
-              ),
-              // for (int i = 0; i <= totalIndex; i++)
-              // Column(
-              //   children: [
-              //     RealPractice(
-              //       index: i,
-              //     ),
-              //     if (i != totalIndex) const Lines(),
-              //   ],
-              // ),
-              const SizedBox(
-                height: 20,
-              )
-            ],
+                    final docs = snapshot.data!.docs;
+                    return ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: docs.length,
+                      itemBuilder: (context, index) {
+                        final doc = docs[index];
+                        return Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => WordPage(
+                                      doc: doc,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: RealPractice(
+                                  index: index + 1,
+                                  title: doc['title'],
+                                  intro: doc['intro']),
+                            ),
+                            if (index != docs.length - 1) const Lines(),
+                          ],
+                        );
+
+                        //     return Container(
+                        //       padding: const EdgeInsets.all(8.0),
+                        //       child: Text(
+                        //         docs[index]['text'],
+                        //         style: const TextStyle(fontSize: 20.0),
+                        //       ),
+                        //     );
+                        //   },
+                        // );
+                      },
+                    );
+                  },
+                ),
+                // for (int i = 0; i <= totalIndex; i++)
+                // Column(
+                //   children: [
+                //     RealPractice(
+                //       index: i,
+                //     ),
+                //     if (i != totalIndex) const Lines(),
+                //   ],
+                // ),
+                const SizedBox(
+                  height: 20,
+                )
+              ],
+            ),
           ),
         ),
       ),

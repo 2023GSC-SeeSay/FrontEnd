@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    '안녕하세요',
+                    'Hello',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 10,
                   ),
                   const Text(
-                    '서비스를 이용하기 위해 로그인해주세요',
+                    'Please login to use the service.',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w200,
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   MyButton(
                     onTap: () => AuthService().signInWithGoogle(),
-                    text: '구글로 로그인',
+                    text: 'Login with Google',
                   ),
                 ],
               ),

@@ -70,7 +70,7 @@ class _RootState extends State<RootPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         actions: [
           Padding(
@@ -96,7 +96,7 @@ class _RootState extends State<RootPage> {
       ),
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         onTap: onTap,
         currentIndex: currentIndex,
         iconSize: 30,
