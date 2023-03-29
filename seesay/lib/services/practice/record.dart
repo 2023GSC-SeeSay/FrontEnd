@@ -93,72 +93,88 @@ class _AudioRecorderState extends State<AudioRecorder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(right: 25.0, left: 25),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FutureBuilder(
-                  future: loadGifFromFirebase1(),
-                  builder:
-                      (BuildContext context, AsyncSnapshot<File> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done &&
-                        snapshot.hasData) {
-                      return SizedBox(
-                        width: 370,
-                        height: 220,
-                        child: Image.file(
-                          snapshot.data!,
-                          fit: BoxFit.contain,
-                        ),
-                      );
-                    } else {
-                      return const CircularProgressIndicator(
-                          color: Color(0xFFce4040));
-                    }
-                  }),
-              FutureBuilder(
-                  future: loadGifFromFirebase2(),
-                  builder:
-                      (BuildContext context, AsyncSnapshot<File> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done &&
-                        snapshot.hasData) {
-                      return SizedBox(
-                        width: 370,
-                        height: 300,
-                        child: Image.file(
-                          snapshot.data!,
-                          fit: BoxFit.contain,
-                        ),
-                      );
-                    } else {
-                      return const CircularProgressIndicator(
-                          color: Color(0xFFce4040));
-                    }
-                  }),
-              const SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(width: 40),
-                  _buildRecordStopControl(),
-                  const SizedBox(width: 40),
-                  _buildPauseResumeControl(),
-                  const SizedBox(width: 20),
-                ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              "Repeat Simultaneously",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
               ),
-              const SizedBox(
-                height: 50,
-              ),
-              // _buildText(),
-              // if (_amplitude != null) ...[
-              // const SizedBox(height: 40),
-              // Text('Current: ${_amplitude?.current ?? 0.0}'),
-              // Text('Max: ${_amplitude?.max ?? 0.0}'),
-              // ],
-            ],
-          ),
+            ),
+            Image.asset(
+              'assets/images/0_58_tongue.gif',
+              width: 370,
+              height: 200,
+              fit: BoxFit.contain,
+            ),
+            Image.asset(
+              'assets/images/0_58_mouth.gif',
+              width: 370,
+              height: 315,
+              fit: BoxFit.contain,
+            ),
+            // FutureBuilder(
+            //     future: loadGifFromFirebase1(),
+            //     builder:
+            //         (BuildContext context, AsyncSnapshot<File> snapshot) {
+            //       if (snapshot.connectionState == ConnectionState.done &&
+            //           snapshot.hasData) {
+            //         return SizedBox(
+            //           width: 370,
+            //           height: 220,
+            //           child: Image.file(
+            //             snapshot.data!,
+            //             fit: BoxFit.contain,
+            //           ),
+            //         );
+            //       } else {
+            //         return const CircularProgressIndicator(
+            //             color: Color(0xFFce4040));
+            //       }
+            //     }),
+            // FutureBuilder(
+            //     future: loadGifFromFirebase2(),
+            //     builder:
+            //         (BuildContext context, AsyncSnapshot<File> snapshot) {
+            //       if (snapshot.connectionState == ConnectionState.done &&
+            //           snapshot.hasData) {
+            //         return SizedBox(
+            //           width: 370,
+            //           height: 300,
+            //           child: Image.file(
+            //             snapshot.data!,
+            //             fit: BoxFit.contain,
+            //           ),
+            //         );
+            //       } else {
+            //         return const CircularProgressIndicator(
+            //             color: Color(0xFFce4040));
+            //       }
+            //     }),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const SizedBox(width: 40),
+                _buildRecordStopControl(),
+                const SizedBox(width: 40),
+                _buildPauseResumeControl(),
+                const SizedBox(width: 20),
+              ],
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            // _buildText(),
+            // if (_amplitude != null) ...[
+            // const SizedBox(height: 40),
+            // Text('Current: ${_amplitude?.current ?? 0.0}'),
+            // Text('Max: ${_amplitude?.max ?? 0.0}'),
+            // ],
+          ],
         ),
       ),
     );

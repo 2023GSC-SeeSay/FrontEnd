@@ -87,6 +87,9 @@ flutter:
     - assets/images/plant0.png
     - assets/images/apple_logo.png
     - assets/images/google_logo.png
+    - assets/images/0_58_mouth.gif
+    - assets/images/0_58_tongue.gif
+    - assets/images/MovingSeeSayBig.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

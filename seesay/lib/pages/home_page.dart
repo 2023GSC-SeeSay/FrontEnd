@@ -9,15 +9,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Flexible(
-          flex: 2,
-          child: Container(
+    return Container(
+      color: Colors.white,
+      child: Column(
+        children: [
+          Container(
+            color: Colors.white,
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 80,
+                ),
                 Text(
                   textAlign: TextAlign.center,
                   'Hello $userName,',
@@ -30,26 +34,26 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Modak',
                     fontSize: 74,
-                    color: Color(0xFFCE4040),
+                    color: Color.fromARGB(255, 198, 7, 7),
                   ),
                 )
               ],
             ),
           ),
-        ),
-        Flexible(
-          flex: 3,
-          child: Container(
+          Container(
+            color: Colors.white,
+            height: 450,
             alignment: Alignment.center,
             child: const Image(
+              width: 300,
               image: AssetImage(
-                'assets/images/plant0.png',
+                // 'assets/images/plant0.png',
+                'assets/images/MovingSeeSayBig.gif',
               ),
-              width: 200,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

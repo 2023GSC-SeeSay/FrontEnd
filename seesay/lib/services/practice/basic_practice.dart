@@ -6,6 +6,12 @@ import 'package:seesay/services/practice/record.dart';
 
 const String gifUrlmouth = "gif/0_60_mouth.gif";
 const String gifUrltongue = "gif/0_60_tongue.gif";
+String word = "김밥";
+String read = "김빱";
+String exp1 =
+    "김: After flattening the lips, put strength on the lips and pull the corners of the lips to both sides to pronounce it as a mouth shape that feels like a smile, but only the lips slightly fall off. At this time, both corners of your mouth should not come down, and be careful not to relax your entire lip.";
+String exp2 =
+    "빱: Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on your lips to fit these three fingers and drop your lower jaw to pronounce it. Let the mouth shape be a circle.";
 
 class BasicPractice extends StatefulWidget {
   final String content;
@@ -49,13 +55,38 @@ class _BasicPracticeState extends State<BasicPractice> {
                   ),
                 ),
                 Text(
-                  // "~~를 발음해 봅시다",
                   widget.content,
                   style: const TextStyle(fontSize: 30, color: Colors.black),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 7,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      word,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFCE4040),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      "[$read]",
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
                 ),
                 Container(
                   width: 394,
@@ -198,75 +229,158 @@ class _BasicPracticeState extends State<BasicPractice> {
             ),
           ),
           Expanded(
-            child: PageView(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _pageController,
-              children: [
-                Center(
-                  child: explanationGif(
-                    title: "혀 모양",
-                    exp: "혀 모양에 대한 설명",
-                    gifUrl: gifUrltongue,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: _pageController,
+                children: [
+                  SingleChildScrollView(
+                    child: Center(
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Tongue Position",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Image.asset(
+                            'assets/images/0_58_tongue.gif',
+                            width: 370,
+                            height: 200,
+                            fit: BoxFit.contain,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            exp1,
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            exp2,
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      ),
+                      // child: explanationGif(
+                      //   title: "혀 모양",
+                      //   exp: "혀 모양에 대한 설명",
+                      //   gifUrl: gifUrltongue,
+                      // ),
+                    ),
                   ),
-                ),
-                Center(
-                  child: explanationGif(
-                    title: "입 모양",
-                    exp: "입 모양에 대한 설명",
-                    gifUrl: gifUrlmouth,
+                  SingleChildScrollView(
+                    child: Center(
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Mouth Shape",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Image.asset(
+                            'assets/images/0_58_mouth.gif',
+                            width: 370,
+                            height: 315,
+                            fit: BoxFit.contain,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            exp1,
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            exp2,
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      ),
+                      // child: explanationGif(
+                      //   title: "입 모양",
+                      //   exp: "입 모양에 대한 설명",
+                      //   gifUrl: gifUrlmouth,
+                      // ),
+                    ),
                   ),
-                ),
-                const Center(
-                  child: RecordPage(),
-                  //   Scaffold(
-                  //     body: Padding(
-                  //       padding: const EdgeInsets.all(25),
-                  //       child: Center(
-                  //         child: Column(
-                  //           children: const [
-                  //             Text(
-                  //               "발음 연습",
-                  //               style: TextStyle(
-                  //                 fontSize: 30,
-                  //                 fontWeight: FontWeight.bold,
-                  //               ),
-                  //             ),
-                  //             SizedBox(height: 10),
-                  //             Text(
-                  //               "발음 연습",
-                  //               style: TextStyle(
-                  //                 fontSize: 25,
-                  //               ),
-                  //             ),
-                  //             SizedBox(height: 10),
-                  //             // AudioRecorder(onStop: onStop),
-                  //             RecordPage(),
-                  //             // GestureDetector(
-                  //             //   child: const Icon(
-                  //             //     Icons.record_voice_over,
-                  //             //     size: 100,
-                  //             //     color: Colors.black,
-                  //             //   ),
-                  //             //   onTap: () {
-                  //             //     Navigator.push(
-                  //             //       context,
-                  //             //       MaterialPageRoute(
-                  //             //           builder: (context) => const RecordPage()),
-                  //             //     );
-                  //             //   },
-                  //             // ),
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                ),
-              ],
-              onPageChanged: (int pageIndex) {
-                setState(() {
-                  _currentPageIndex = pageIndex;
-                });
-              },
+                  const Center(
+                    child: RecordPage(),
+                    //   Scaffold(
+                    //     body: Padding(
+                    //       padding: const EdgeInsets.all(25),
+                    //       child: Center(
+                    //         child: Column(
+                    //           children: const [
+                    //             Text(
+                    //               "발음 연습",
+                    //               style: TextStyle(
+                    //                 fontSize: 30,
+                    //                 fontWeight: FontWeight.bold,
+                    //               ),
+                    //             ),
+                    //             SizedBox(height: 10),
+                    //             Text(
+                    //               "발음 연습",
+                    //               style: TextStyle(
+                    //                 fontSize: 25,
+                    //               ),
+                    //             ),
+                    //             SizedBox(height: 10),
+                    //             // AudioRecorder(onStop: onStop),
+                    //             RecordPage(),
+                    //             // GestureDetector(
+                    //             //   child: const Icon(
+                    //             //     Icons.record_voice_over,
+                    //             //     size: 100,
+                    //             //     color: Colors.black,
+                    //             //   ),
+                    //             //   onTap: () {
+                    //             //     Navigator.push(
+                    //             //       context,
+                    //             //       MaterialPageRoute(
+                    //             //           builder: (context) => const RecordPage()),
+                    //             //     );
+                    //             //   },
+                    //             // ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                  ),
+                ],
+                onPageChanged: (int pageIndex) {
+                  setState(() {
+                    _currentPageIndex = pageIndex;
+                  });
+                },
+              ),
             ),
           ),
         ],
