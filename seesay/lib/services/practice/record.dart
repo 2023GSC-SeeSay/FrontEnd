@@ -10,8 +10,9 @@ import 'package:seesay/services/practice/upload_page.dart';
 
 class AudioRecorder extends StatefulWidget {
   final void Function(String path) onStop;
+  bool from;
 
-  const AudioRecorder({super.key, required this.onStop});
+  AudioRecorder({super.key, required this.onStop, required this.from});
 
   @override
   State<AudioRecorder> createState() => _AudioRecorderState();
@@ -87,8 +88,10 @@ class _AudioRecorderState extends State<AudioRecorder> {
     await _audioRecorder.resume();
   }
 
-  final String gifUrl1 = "gif/0_60_tongue.gif";
-  final String gifUrl2 = "gif/0_60_mouth.gif";
+  final String gifUrl1 = "assets/images/0_58_tongue.gif";
+  final String gifUrl2 = "assets/images/0_58_mouth.gif";
+  final String gifUrl3 = "assets/images/0_55_tongue.gif";
+  final String gifUrl4 = "assets/images/0_55_mouth.gif";
 
   @override
   Widget build(BuildContext context) {
@@ -105,13 +108,13 @@ class _AudioRecorderState extends State<AudioRecorder> {
               ),
             ),
             Image.asset(
-              'assets/images/0_58_tongue.gif',
+              widget.from ? gifUrl1 : gifUrl3,
               width: 370,
               height: 200,
               fit: BoxFit.contain,
             ),
             Image.asset(
-              'assets/images/0_58_mouth.gif',
+              widget.from ? gifUrl2 : gifUrl4,
               width: 370,
               height: 315,
               fit: BoxFit.contain,
@@ -180,15 +183,17 @@ class _AudioRecorderState extends State<AudioRecorder> {
     );
   }
 
-  Future<File> loadGifFromFirebase1() async {
-    final Reference ref = FirebaseStorage.instance.ref().child(gifUrl1);
+  Future<File> loadGifFromFirebase1(from) async {
+    String gifUrl = from ? gifUrl1 : gifUrl3;
+    final Reference ref = FirebaseStorage.instance.ref().child(gifUrl);
     final File file =
         await DefaultCacheManager().getSingleFile(await ref.getDownloadURL());
     return file;
   }
 
-  Future<File> loadGifFromFirebase2() async {
-    final Reference ref = FirebaseStorage.instance.ref().child(gifUrl2);
+  Future<File> loadGifFromFirebase2(from) async {
+    String gifUrl = from ? gifUrl2 : gifUrl4;
+    final Reference ref = FirebaseStorage.instance.ref().child(gifUrl);
     final File file =
         await DefaultCacheManager().getSingleFile(await ref.getDownloadURL());
     return file;
@@ -307,7 +312,11 @@ class _AudioRecorderState extends State<AudioRecorder> {
 }
 
 class RecordPage extends StatefulWidget {
-  const RecordPage({Key? key}) : super(key: key);
+  bool from; //true면 기본연습, false면 서재연습
+  RecordPage({
+    Key? key,
+    this.from = true,
+  }) : super(key: key);
 
   @override
   State<RecordPage> createState() => RecordPageState();
@@ -415,6 +424,7 @@ class RecordPageState extends State<RecordPage> {
                 ),
               )
             : AudioRecorder(
+                from: widget.from,
                 onStop: (path) {
                   path = path.substring(7);
                   if (kDebugMode) print('Recorded file path: $path');

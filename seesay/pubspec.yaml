@@ -89,6 +89,8 @@ flutter:
     - assets/images/google_logo.png
     - assets/images/0_58_mouth.gif
     - assets/images/0_58_tongue.gif
+    - assets/images/0_55_mouth.gif
+    - assets/images/0_55_tongue.gif
     - assets/images/MovingSeeSayBig.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see

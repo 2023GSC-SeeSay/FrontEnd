@@ -8,9 +8,13 @@ const String gifUrlmouth = "gif/0_60_mouth.gif";
 const String gifUrltongue = "gif/0_60_tongue.gif";
 String word = "김밥";
 String read = "김빱";
-String exp1 =
+String tongueExp1 =
+    "김: Put the back of your tongue inside the roof of your mouth to block the air and make a sound. Put your tongue naturally and make a sound, close your mouth and block the air to pronounce it.";
+String tongueExp2 =
+    "빱: Close your mouth with your tongue in the middle, take off your lips and make a sound by spouting air. Put your tongue naturally and make a sound, close your mouth and block the air to pronounce it.";
+String mouthExp1 =
     "김: After flattening the lips, put strength on the lips and pull the corners of the lips to both sides to pronounce it as a mouth shape that feels like a smile, but only the lips slightly fall off. At this time, both corners of your mouth should not come down, and be careful not to relax your entire lip.";
-String exp2 =
+String mouthExp2 =
     "빱: Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on your lips to fit these three fingers and drop your lower jaw to pronounce it. Let the mouth shape be a circle.";
 
 class BasicPractice extends StatefulWidget {
@@ -256,7 +260,7 @@ class _BasicPracticeState extends State<BasicPractice> {
                             height: 10,
                           ),
                           Text(
-                            exp1,
+                            tongueExp1,
                             style: const TextStyle(
                               fontSize: 20,
                             ),
@@ -265,7 +269,7 @@ class _BasicPracticeState extends State<BasicPractice> {
                             height: 20,
                           ),
                           Text(
-                            exp2,
+                            tongueExp2,
                             style: const TextStyle(
                               fontSize: 20,
                             ),
@@ -303,7 +307,7 @@ class _BasicPracticeState extends State<BasicPractice> {
                             height: 10,
                           ),
                           Text(
-                            exp1,
+                            mouthExp1,
                             style: const TextStyle(
                               fontSize: 20,
                             ),
@@ -312,7 +316,7 @@ class _BasicPracticeState extends State<BasicPractice> {
                             height: 20,
                           ),
                           Text(
-                            exp2,
+                            mouthExp2,
                             style: const TextStyle(
                               fontSize: 20,
                             ),
@@ -329,7 +333,7 @@ class _BasicPracticeState extends State<BasicPractice> {
                       // ),
                     ),
                   ),
-                  const Center(
+                  Center(
                     child: RecordPage(),
                     //   Scaffold(
                     //     body: Padding(
