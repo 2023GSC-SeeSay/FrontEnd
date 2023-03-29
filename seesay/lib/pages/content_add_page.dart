@@ -36,7 +36,7 @@ class ContentAddPage extends StatelessWidget {
                   height: 20,
                 ),
                 const Text(
-                  "Enter the sentence \nyou want to pronounce",
+                  "Enter the word\nyou want to pronounce",
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.black,
@@ -55,8 +55,9 @@ class ContentAddPage extends StatelessWidget {
                 ),
                 MyTextField(
                   controller: textController,
-                  hintText: 'Please enter a sentence.',
-                  labelText: 'sentence',
+                  hintText: 'Please enter a word.',
+                  labelText: 'word',
+                  lengthCheck: true,
                 ),
                 const SizedBox(
                   height: 20,

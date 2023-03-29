@@ -4,17 +4,19 @@ class MyTextField extends StatelessWidget {
   final controller;
   final String labelText;
   final String hintText;
-
-  const MyTextField({
+  bool lengthCheck;
+  MyTextField({
     super.key,
     required this.controller,
     required this.hintText,
     required this.labelText,
+    this.lengthCheck = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: lengthCheck ? 50 : null,
       minLines: 1,
       maxLines: 10,
       controller: controller,

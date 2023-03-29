@@ -340,11 +340,13 @@ class _explanationGifState extends State<explanationGif> {
                     //   errorWidget: (context, url, error) =>
                     //       const Icon(Icons.error),
                     // );
-                    return Image.file(
-                      snapshot.data!,
-                      width: 400,
+                    return SizedBox(
+                      width: 370,
                       height: 300,
-                      fit: BoxFit.contain,
+                      child: Image.file(
+                        snapshot.data!,
+                        fit: BoxFit.contain,
+                      ),
                     );
                   } else {
                     return const CircularProgressIndicator(
