@@ -74,46 +74,51 @@ class PracticePage extends StatelessWidget {
                     );
                   }
 
-                  final docs = snapshot.data!.docs;
-                  return ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: docs.length,
-                    itemBuilder: (context, index) {
-                      final doc = docs[index];
-                      return Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => WordPage(
-                                    doc: doc,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: RealPractice(
-                                index: index + 1,
-                                title: doc['title'],
-                                intro: doc['intro']),
-                          ),
-                          if (index != docs.length - 1) const Lines(),
-                        ],
-                      );
+                  if (snapshot.hasData) {
+                    final docs = snapshot.data!.docs;
 
-                      //     return Container(
-                      //       padding: const EdgeInsets.all(8.0),
-                      //       child: Text(
-                      //         docs[index]['text'],
-                      //         style: const TextStyle(fontSize: 20.0),
-                      //       ),
-                      //     );
-                      //   },
-                      // );
-                    },
-                  );
+                    return ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: docs.length,
+                      itemBuilder: (context, index) {
+                        final doc = docs[index];
+                        return Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => WordPage(
+                                      doc: doc,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: RealPractice(
+                                  index: index + 1,
+                                  title: doc['title'],
+                                  intro: doc['intro']),
+                            ),
+                            if (index != docs.length - 1) const Lines(),
+                          ],
+                        );
+
+                        //     return Container(
+                        //       padding: const EdgeInsets.all(8.0),
+                        //       child: Text(
+                        //         docs[index]['text'],
+                        //         style: const TextStyle(fontSize: 20.0),
+                        //       ),
+                        //     );
+                        //   },
+                        // );
+                      },
+                    );
+                  }
+
+                  return const Text("Loading");
                 },
               ),
               // for (int i = 0; i <= totalIndex; i++)

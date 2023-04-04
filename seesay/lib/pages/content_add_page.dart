@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:seesay/components/add_textfield.dart';
 import 'package:seesay/components/submit_button.dart';
-import 'package:seesay/pages/preview_add_page.dart';
+import 'package:seesay/pages/save_page.dart';
+import 'package:seesay/services/api_service.dart';
 
 class ContentAddPage extends StatelessWidget {
-  ContentAddPage({super.key});
+  int Pid;
+  ContentAddPage({
+    super.key,
+    required this.Pid,
+  });
 
   final textController = TextEditingController();
 
@@ -63,7 +68,7 @@ class ContentAddPage extends StatelessWidget {
                   height: 20,
                 ),
                 SubmitButton(
-                    buttonText: 'Next',
+                    buttonText: 'Save',
                     onTap: () {
                       if (textController.text.isEmpty) {
                         return showDialog(
@@ -84,9 +89,12 @@ class ContentAddPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => PreviewAddPage(
-                            content: textController.text,
-                          ),
+                          builder: (context) {
+                            print(Pid);
+                            Future book = ApiService.createPractice(
+                                Pid, 1, textController.text);
+                            return const SavePage();
+                          },
                         ),
                       );
                     }),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seesay/services/add/file_add.dart';
 import 'package:seesay/services/add/image_add.dart';
-import 'package:seesay/services/add/text_add.dart';
 
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
@@ -74,7 +73,7 @@ class AddPage extends StatelessWidget {
     int index,
   ) {
     List addPages = [
-      TextAdd(),
+      // TextAdd(),
       const ImageAdd(),
       const fileAdd(),
     ];

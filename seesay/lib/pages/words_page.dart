@@ -57,6 +57,7 @@ class WordPage extends StatelessWidget {
                               builder: (context) => BasicPractice(
                                 title: doc['title'],
                                 content: doc['intro'],
+                                word: words[index],
                               ),
                             ),
                           );
