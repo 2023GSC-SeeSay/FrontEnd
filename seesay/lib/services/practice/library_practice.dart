@@ -11,18 +11,18 @@ const String gifUrltongue = "gif/0_60_tongue.gif";
 String title = "Subway Station";
 String word = "강남역";
 String read = "강남역";
-String tongueExp1 =
-    "강: Put the back of your tongue inside the roof of your mouth to block the air and make a sound. Put the back of your tongue inside the roof of your mouth and pronounce it long.";
-String tongueExp2 =
-    "남: Put the tip of the tongue on the gums behind the front teeth and make a sound by spouting air. Put your tongue naturally and make a sound, then close your mouth and make a long sound.";
-String tongueExp3 =
-    "역: Put the tip of the tongue on the gums behind the front teeth and make a sound by spouting air. While making a sound, put the back of your tongue inside the roof of your mouth to block the air and pronounce it.";
-String mouthExp1 =
-    "강: Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on your lips to fit these three fingers and drop your lower jaw to pronounce it. Let the mouth shape be a circle.";
-String mouthExp2 =
-    "남: Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on your lips to fit these three fingers and drop your lower jaw to pronounce it. Let the mouth shape be a circle.";
-String mouthExp3 =
-    "역: After flattening the lips, put strength on the lips and pull the corners of the lips to both sides to pronounce it as a mouth shape that feels like a smile, but only the lips slightly fall off. At this time, both corners of your mouth should not come down, and be careful not to relax your entire lip.\n Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on the lips and drop the lower jaw so that these three fingers go in. Let the mouth shape be an oval. ";
+// String tongueExp1 =
+//     "강: Put the back of your tongue inside the roof of your mouth to block the air and make a sound. Put the back of your tongue inside the roof of your mouth and pronounce it long.";
+// String tongueExp2 =
+//     "남: Put the tip of the tongue on the gums behind the front teeth and make a sound by spouting air. Put your tongue naturally and make a sound, then close your mouth and make a long sound.";
+// String tongueExp3 =
+//     "역: Put the tip of the tongue on the gums behind the front teeth and make a sound by spouting air. While making a sound, put the back of your tongue inside the roof of your mouth to block the air and pronounce it.";
+// String mouthExp1 =
+//     "강: Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on your lips to fit these three fingers and drop your lower jaw to pronounce it. Let the mouth shape be a circle.";
+// String mouthExp2 =
+//     "남: Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on your lips to fit these three fingers and drop your lower jaw to pronounce it. Let the mouth shape be a circle.";
+// String mouthExp3 =
+//     "역: After flattening the lips, put strength on the lips and pull the corners of the lips to both sides to pronounce it as a mouth shape that feels like a smile, but only the lips slightly fall off. At this time, both corners of your mouth should not come down, and be careful not to relax your entire lip.\n Make the index finger, middle finger, and thumb into a triangle shape and put them in your mouth slightly. Put strength on the lips and drop the lower jaw so that these three fingers go in. Let the mouth shape be an oval. ";
 
 class LibraryPractice extends StatefulWidget {
   final String content;

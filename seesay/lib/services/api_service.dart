@@ -5,7 +5,7 @@ import 'package:seesay/services/practice_model.dart';
 import 'package:seesay/services/list_model.dart';
 
 class ApiService {
-  static const String baseUrl = "http://35.216.91.72:8080/api";
+  static const String baseUrl = "http://34.64.119.66:8080/api";
 
   static const String problems = "problems";
 
@@ -39,7 +39,7 @@ class ApiService {
 
   static Future<http.Response> createPractice(int Pid, int Uid, String Text) {
     return http.post(
-      Uri.parse("http://35.216.91.72:8080/api/bookshelf"),
+      Uri.parse("$baseUrl/bookshelf"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
